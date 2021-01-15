@@ -124,5 +124,8 @@
       }
     }
   },
-  "defaultProject": "film-room-front"
+  "defaultProject": "film-room-front",
+  "cli": {
+    "analytics": "4d3898d7-a2ee-44b3-8662-198c04695d81"
+  }
 }
