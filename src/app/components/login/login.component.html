@@ -5,17 +5,15 @@
     </div>
     <form *ngIf="!isLoggedIn" name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" novalidate>
       <div class="mb-3 center_div_form">
-        <label for="username">Username</label>
         <input type="text" class="form-control" name="username" [(ngModel)]="form.username" required
-          #username="ngModel" />
+          #username="ngModel" placeholder="Username"/>
         <div class="alert alert-danger" role="alert" *ngIf="username.errors && f.submitted">
           Username is required!
         </div>
       </div>
       <div class="mb-3 center_div_form">
-        <label for="password">Password</label>
         <input type="password" class="form-control" name="password" [(ngModel)]="form.password" required minlength="6"
-          #password="ngModel" />
+          #password="ngModel" placeholder="Password"/>
         <div class="alert alert-danger" role="alert" *ngIf="password.errors && f.submitted">
           <div *ngIf="password.errors.required">Password is required</div>
           <div *ngIf="password.errors.minlength">

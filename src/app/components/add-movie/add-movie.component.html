@@ -1,0 +1,82 @@
+<form>
+  <div class="mb-3">
+    <label for="title" class="form-label">Title</label>
+    <input
+      type="text"
+      class="form-control"
+      id="title"
+      required
+      [(ngModel)]="movie.title"
+      placeholder="Titanic"
+      name="title"
+    />
+  </div>
+
+  <div class="mb-3">
+    <label for="title" class="form-label">Director</label>
+    <input
+      type="text"
+      class="form-control"
+      id="title"
+      required
+      [(ngModel)]="movie.director"
+      name="title"
+    />
+  </div>
+
+  <div class="mb-3">
+    <label for="title" class="form-label">Producer</label>
+    <input
+      type="text"
+      class="form-control"
+      id="title"
+      required
+      [(ngModel)]="movie.producer"
+      name="title"
+    />
+  </div>
+
+  <div class="mb-3">
+    <label for="description" class="form-label">Description</label>
+    <textarea
+    class="form-control"
+    id="description"
+    rows="3"
+    required
+    [(ngModel)]="movie.description"
+    name="description"
+    ></textarea>
+  </div>
+
+  <div class="mb-3">
+    <label for="actor" class="form-label">Actor</label>
+    <input
+      type="text"
+      class="form-control"
+      id="actor"
+      required
+      [(ngModel)]="actor"
+      name="actor"
+    />
+  <button (click)="addActor()"  class="btn btn-success">Add</button>
+  </div>
+
+  <h3>Choose category</h3>
+  <select name="category" [(ngModel)]="movie.category" class="form-select form-select-lg mb-3" aria-label=".form-select-lg example">
+    <option value="ACTION">Action</option>
+    <option value="DRAMA">Drama</option>
+    <option value="COMEDY">Comedy</option>
+  </select>
+  <!-- <div class="mb-3">
+    <label for="formFile" class="form-label">Image</label>
+    <input class="form-control" type="file" id="formFile">
+  </div> -->
+
+  <!-- <div class="container">
+    <header class="jumbotron">
+      <p>{{ error }}</p>
+    </header>
+  </div> -->
+
+  <button (click)="saveMovie()" class="btn btn-success">Submit</button>
+</form>
