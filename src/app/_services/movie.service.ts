@@ -22,12 +22,12 @@ export class MovieService {
   }
 
   create(data: any): Observable<any> {
-    return this.http.post(`${baseUrl}/add`, data);
+    return this.http.post(`${baseUrl}/admin/add`, data);
   }
 
-  delete(id: any): Observable<any> {
-    return this.http.delete(`${baseUrl}/${id}`);
-  }
+  // delete(id: any): Observable<any> {
+  //   return this.http.delete(`${baseUrl}/${id}`);
+  // }
 
 
 }

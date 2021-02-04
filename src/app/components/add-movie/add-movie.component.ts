@@ -8,7 +8,6 @@ import { MovieService } from 'src/app/_services/movie.service';
   styleUrls: ['./add-movie.component.css']
 })
 export class AddMovieComponent implements OnInit {
-  error?: string;
   actor!: string;
 
   movie: Movie = {
@@ -19,7 +18,6 @@ export class AddMovieComponent implements OnInit {
     category: '',
   }
   actors: Array<string> = [];
-
 
   constructor(private movieService: MovieService) { }
 
@@ -47,9 +45,10 @@ export class AddMovieComponent implements OnInit {
         response => {
           console.log(response);
         },
-        err => {
-          this.error = err;
-        });
+        (error) => {
+          console.log(error.error.errors);
+        }
+      );
 
   }
 

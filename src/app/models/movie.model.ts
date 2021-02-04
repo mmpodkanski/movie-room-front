@@ -1,3 +1,5 @@
+import { Actor } from "./actor.model";
+
 export class Movie {
   id?: any;
   title?: string;
@@ -5,5 +7,5 @@ export class Movie {
   director?: string;
   producer?: string;
   category?: string;
-  actors?: Array<string>;
+  actors?: Array<Actor>;
 }

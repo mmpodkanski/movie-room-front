@@ -7,7 +7,7 @@ import { TokenStorageService } from './_services/token-storage.service';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
-  private roles: string[] = [];
+  role: string = '';
   isLoggedIn = false;
   showAdminBoard = false;
   username?: string;
@@ -19,9 +19,9 @@ export class AppComponent implements OnInit {
 
     if (this.isLoggedIn) {
       const user = this.tokenStorageService.getUser();
-      this.roles = user.roles;
+      this.role = user.role;
 
-      this.showAdminBoard = this.roles.includes('ROLE_ADMIN');
+      this.showAdminBoard = this.role.includes('ROLE_ADMIN');
 
       this.username = user.username;
     }

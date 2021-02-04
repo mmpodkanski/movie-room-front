@@ -1,10 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Movie } from 'src/app/models/movie.model';
+import { Actor } from 'src/app/models/actor.model';
 import { MovieService } from 'src/app/_services/movie.service';
-import { retry, catchError } from 'rxjs/operators';
-import { throwError } from 'rxjs';
-import { TokenStorageService } from 'src/app/_services/token-storage.service';
 
 @Component({
   selector: 'app-movie-details',
@@ -12,14 +10,23 @@ import { TokenStorageService } from 'src/app/_services/token-storage.service';
   styleUrls: ['./movie-details.component.css']
 })
 export class MovieDetailsComponent implements OnInit {
+  currentActor: Actor = {
+    firstName: '',
+    lastName: '',
+    birthDate: '',
+  };
+
   currentMovie: Movie = {
     title: '',
     description: '',
     director: '',
     producer: '',
     category: '',
-    actors: ['']
+    actors: [this.currentActor]
   };
+
+  
+
   errorMsg?: string;
 
   constructor(
@@ -33,23 +40,16 @@ export class MovieDetailsComponent implements OnInit {
 
   getMovie(id: string): void {
     this.movieService.get(id)
-      .pipe(
-        retry(1),
-        catchError(this.handleError)
+      .subscribe(
+        data => {
+          this.currentMovie = data;
+        },
+        (error) => {
+          console.log(error.error);
+        }
+
       );
   }
 
-  handleError(error: any) {
-    let errorMessage = '';
-    if (error.error instanceof ErrorEvent) {
-        // client-side error
-        errorMessage = `Error: ${error.error.message}`;
-    } else {
-        // server-side error
-        errorMessage = `Error Code: ${error.status}\nMessage: ${error.message}`;
-    }
-    console.log(errorMessage);
-    return throwError(errorMessage);
-}
 
 }

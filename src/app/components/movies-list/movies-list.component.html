@@ -1,18 +1,14 @@
 <div class="row row-cols-1 row-cols-md-3 mb-3 text-center">
-  <div
-  *ngFor="let movie of movies"
-  class="col"
-  style="width: 18rem;"
-  >
+  <div *ngFor="let movie of movies" class="col" style="width: 18rem;" >
     <div class="card mb-4 shadow-sm">
       <div class="card-header">
-  <h5 (click)="goToMovie(movie.id)" class="text-decoration-none">{{movie.title}}</h5>
+        <h5 (click)="goToMovie(movie)" class="text-decoration-none">{{movie.title}}</h5>
       </div>
       <div card-body>
         <img src="assets/img/example.jpg" class="card-img-top center_div" alt="...">
         <div class="center_div">
           <p class="card-text">{{movie.description}}</p>
-          <a href="/movies/1" class="btn btn-primary">Delete</a>
+          <a (click)="goToMovie(movie)" class="btn btn-primary">Check!</a>
         </div>
       </div>
     </div>
@@ -24,7 +20,7 @@
   </div>
   <div class="card-body">
     <h5 class="card-title">Iron man</h5>
-    <p class="card-text">WOW ! New movie in a few days.</p>
+    <p class="card-text"> {{news}} </p>
     <a href="#" class="btn btn-primary">Articule</a>
   </div>
   <div class="card-footer text-muted">
