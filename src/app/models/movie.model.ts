@@ -1,4 +1,5 @@
 import { Actor } from "./actor.model";
+import { Comment } from "./comment.model";
 
 export class Movie {
   id?: any;
@@ -8,4 +9,5 @@ export class Movie {
   producer?: string;
   category?: string;
   actors?: Array<Actor>;
+  comments?: Array<Comment>;
 }

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Movie } from 'src/app/models/movie.model';
 import { MovieService } from 'src/app/_services/movie.service';
+import { TokenStorageService } from 'src/app/_services/token-storage.service';
 
 @Component({
   selector: 'app-add-movie',
@@ -19,18 +20,22 @@ export class AddMovieComponent implements OnInit {
   }
   actors: Array<string> = [];
 
-  constructor(private movieService: MovieService) { }
+  constructor(
+    private movieService: MovieService,
+    private tokenService: TokenStorageService 
+    ) { }
 
   ngOnInit(): void {
   }
 
 
-  addActor() {
+  addActor(): void {
     this.actors.push(this.actor);
     console.log(this.actors);
   }
 
   saveMovie(): void {
+    // const id = this.tokenService.getUser().id;
     const data = {
       title: this.movie.title,
       description: this.movie.description,
@@ -44,12 +49,8 @@ export class AddMovieComponent implements OnInit {
       .subscribe(
         response => {
           console.log(response);
-        },
-        (error) => {
-          console.log(error.error.errors);
-        }
-      );
+      });
 
-  }
+  };
 
 }

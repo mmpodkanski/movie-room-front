@@ -1,9 +1,15 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { ErrorHandler, NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http'
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
 
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AuthInterceptor } from './_helpers/auth.interceptor'
+
+import { ServerErrorInterceptor } from './_helpers/error.interceptor';
+import { GlobalErrorHandler } from './_services/global-error-handler.service';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -17,6 +23,9 @@ import { MoviesListComponent } from './components/movies-list/movies-list.compon
 import { MovieDetailsComponent } from './components/movie-details/movie-details.component';
 import { AddMovieComponent } from './components/add-movie/add-movie.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { HearthButtonModule } from './favourite-button/hearth/hearth.module';
+
+
 
 @NgModule({
   declarations: [
@@ -28,7 +37,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     BoardUserComponent,
     MoviesListComponent,
     MovieDetailsComponent,
-    AddMovieComponent,
+    AddMovieComponent
   ],
   imports: [
     BrowserModule,
@@ -36,12 +45,24 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     FormsModule,
     HttpClientModule,
     NgbModule,
+    MatSnackBarModule,
+    BrowserAnimationsModule,
+    HearthButtonModule
   ],
+
+
   providers: [
     {
       provide: HTTP_INTERCEPTORS,
       useClass: AuthInterceptor,
       multi: true
+    },
+    { provide: HTTP_INTERCEPTORS, 
+      useClass: ServerErrorInterceptor,
+      multi: true 
+    },
+    { provide: ErrorHandler, 
+      useClass: GlobalErrorHandler
     }
   ],
   bootstrap: [AppComponent]

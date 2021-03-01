@@ -1,17 +1,21 @@
 <div id="app">
   <nav class="navbar navbar-expand navbar-dark bg-dark">
-    <a href="#" class="navbar-brand">Logo</a>
+    <a href="#" class="navbar-brand"><i class="fa fa-cube"></i>Movie<b>Room</b></a>  
+    
     <ul class="navbar-nav mr-auto" routerLinkActive="active">
       <li class="nav-item">
-        <a href="/movies" class="nav-link">Movies </a>
+        <a href="/movies" class="nav-item nav-link">Movies </a>
       </li>
       <li class="nav-item">
-        <a routerLink="add" class="nav-link">Add</a>
+        <a routerLink="add" class="nav-item nav-link">Add</a>
       </li>
       <li class="nav-item" *ngIf="showAdminBoard">
-        <a href="/admin" class="nav-link" routerLink="admin">Admin Board</a>
+        <a href="/admin/board" class="nav-item nav-link" routerLink="admin/board">Admin Board</a>
       </li>
     </ul>
+    
+
+  
 
     <ul class="navbar-nav ml-auto" *ngIf="!isLoggedIn">
       <li class="nav-item">
@@ -35,4 +39,11 @@
   <div class="container">
     <router-outlet></router-outlet>
   </div>
+
+  <footer class="footer">
+    <p>Created by: mmpodkanski</p>
+    <p>
+      <a href="#">Github</a>
+    </p>
+  </footer>
 </div>

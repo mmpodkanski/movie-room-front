@@ -1,5 +1,19 @@
-<div class="container">
-  <header class="jumbotron">
-    <p>{{ content }}</p>
-  </header>
-</div>
+<table class="table">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">Id</th>
+      <th scope="col">Username</th>
+      <th scope="col">Role</th>
+      <th scope="col">Locked</th>
+    </tr>
+  </thead>
+  <tbody *ngFor="let user of users">
+    <tr>
+      <td name="userid" id="userid" type="text">{{user.id}}</td>
+      <td>{{user.username}}</td>
+      <td>{{user.role}}</td>
+      <td>{{user.locked}}</td>
+      <a (click)="toggleUserStatus(user.id)" class="btn btn-primary">Toggle</a>
+    </tr>
+  </tbody>
+</table>

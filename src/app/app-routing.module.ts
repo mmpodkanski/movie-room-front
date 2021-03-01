@@ -9,7 +9,6 @@ import { BoardAdminComponent } from './components/board-admin/board-admin.compon
 import { MoviesListComponent } from './components/movies-list/movies-list.component';
 import { MovieDetailsComponent } from './components/movie-details/movie-details.component';
 import { AddMovieComponent } from './components/add-movie/add-movie.component';
-// import { NotFoundComponent } from './NotFound';
 
 const routes: Routes = [
   { path: 'movies', component: MoviesListComponent },
@@ -19,9 +18,8 @@ const routes: Routes = [
   { path: 'register', component: RegisterComponent },
   { path: 'login', component: LoginComponent },
   { path: 'user', component: BoardUserComponent },
-  { path: 'admin', component: BoardAdminComponent },
-  // { path: '404', component: NotFoundComponent },
-  { path: '**', redirectTo: 'movies', pathMatch: 'full' }
+  { path: 'admin/board', component: BoardAdminComponent },
+  { path: '**', component: MoviesListComponent}
 ];
 
 @NgModule({

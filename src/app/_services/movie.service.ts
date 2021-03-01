@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Movie } from '../models/movie.model';
@@ -22,7 +22,11 @@ export class MovieService {
   }
 
   create(data: any): Observable<any> {
-    return this.http.post(`${baseUrl}/admin/add`, data);
+    return this.http.post(`${baseUrl}/add`, data);
+  }
+
+  createComment(id:any, data: any): Observable<any> {
+    return this.http.post(`${baseUrl}/${id}/comments/add`, data)
   }
 
   // delete(id: any): Observable<any> {

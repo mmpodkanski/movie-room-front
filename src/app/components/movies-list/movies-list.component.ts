@@ -20,7 +20,20 @@ export class MoviesListComponent implements OnInit {
     ) { }
 
 ngOnInit(): void {
-  this.retrieveMovie()
+  this.retrieveMovies();
+  this.retrieveNews();
+}
+
+retrieveMovies(): void {
+  this.movieService.getAll()
+    .subscribe(
+      data => {
+        this.movies = data;
+        console.log(data);
+      });
+}
+
+retrieveNews(): void {
   this.publicApi.getNews().subscribe(
     data => {
       this.news =  data;
@@ -29,18 +42,6 @@ ngOnInit(): void {
       this.news =  JSON.parse(err.error).message;
     }
   );
-}
-
-retrieveMovie(): void {
-  this.movieService.getAll()
-    .subscribe(
-      data => {
-        this.movies = data;
-        console.log(data);
-      },
-      error => {
-        console.log(error);
-      });
 }
 
 goToMovie(movie: Movie): void {
