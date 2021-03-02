@@ -1,9 +1,15 @@
-.center_div{
+.center_div {
     margin: 0 auto;
     width:80% /* value of your choice which suits your alignment */
 }
 
-.center_div_form{
+.center_div_form {
   margin: 0 auto;
   width:50% /* value of your choice which suits your alignment */
+}
+
+.form-control {
+  border-color: rgba(196, 148, 148, 0.822);
+  outline: 0;
+  box-shadow: 2px 3px rgba(196, 148, 148, 0.822);
 }

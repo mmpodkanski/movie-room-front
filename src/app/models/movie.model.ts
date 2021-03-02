@@ -10,4 +10,5 @@ export class Movie {
   category?: string;
   actors?: Array<Actor>;
   comments?: Array<Comment>;
+  imageUrl?: string;
 }

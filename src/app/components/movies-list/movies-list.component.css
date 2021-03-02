@@ -1,6 +1,46 @@
-.card img {
-  width: 150px;
-  height: 150px;
+.lead {
+  text-shadow: 0.2px 0.2px #707070;
+}
+
+h1 {
+  font-size: 40px;
+  text-shadow: 1px 1px #707070;
+}
+
+.card_link {
+  width: 244px;
+  height: 100%;
+  overflow: hidden;
+}
+.card_link .imgContainer {
+  width: 230px;
+  height: 285px;
+  overflow: hidden;
+}
+
+.card_link .imgContainer img {
+  width: 230px;
+  height: 285px;
+  -webkit-transition: all 0.7s ease;
+  transition: all 0.7s ease;
+}
+
+.card_link:hover .imgContainer img {
+  cursor:pointer;
+  -webkit-transform: scale(1.2);
+  transform: scale(1.2);
+}
+
+.movie_title{
+	font-size: 26px;
+  font-weight: 700;
+  margin-top: 0%;
+  padding-top: 0%;
+  line-height: 30px;
+  font-family: PT Sans Narrow;
+  text-shadow: 0.2px 0.2px #707070;
+	color: rgb(0, 0, 0);
+  margin: 0%;
 }
 
 .center_div{

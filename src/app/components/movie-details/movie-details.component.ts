@@ -36,7 +36,8 @@ export class MovieDetailsComponent implements OnInit {
     producer: '',
     category: '',
     actors: [this.actor],
-    comments: [this.comment]
+    comments: [this.comment],
+    imageUrl: ''
   };
 
   constructor(

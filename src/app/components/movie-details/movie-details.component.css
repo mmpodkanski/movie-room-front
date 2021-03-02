@@ -1,21 +1,44 @@
 @import url(https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css);
-/* resize images */
 
+h5 {
+    font-family: Lato, sans-serif;
+    font-size: 20px;
+    text-align: justify;
+}
 
+.tag_title{
+    font-size: 26px;
+    font-weight: 700;
+    text-transform: uppercase;
+    margin-top: 0%;
+    padding-top: 0%;
+    line-height: 30px;
+    font-family: PT Sans Narrow;
+    text-shadow: 0.2px 0.2px #707070;
+    color: rgb(0, 0, 0);
+    margin: 0%;
+}
 
 .col-md-3 img {
-    width: 200px;
-    height: 300px;
+    width: 230px;
+    height: 285px;
 }
 
 .card-img {
-  width: 1110px;
+  max-width: 1100px;
   height: 300px;
   opacity: 0.2;
 }
 
-body {
-    background-color: #eee
+.back {
+    /* background-color: rgba(223, 222, 222, 0.877); */
+    max-width: 1100px;
+    margin: auto;
+}
+
+.back_2 {
+    max-width: 1100px;
+    margin: auto;
 }
 
 div.stars {

@@ -7,3 +7,9 @@
 margin: 0 auto;
 width:50% /* value of your choice which suits your alignment */
 }
+
+.form-control {
+  border-color: rgba(196, 148, 148, 0.822);
+  outline: 0;
+  box-shadow: 2px 3px rgba(196, 148, 148, 0.822);
+}

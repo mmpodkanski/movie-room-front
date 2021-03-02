@@ -1,6 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Injector, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { AuthService } from '../../_services/auth.service';
 import { TokenStorageService } from '../../_services/token-storage.service';
+import { NotificationService } from '../../_services/notification.service';
+import { AppComponent } from 'src/app/app.component';
 
 @Component({
   selector: 'app-login',
@@ -17,7 +20,13 @@ export class LoginComponent implements OnInit {
   errorMessage = '';
   role: string = '';
 
-  constructor(private authService: AuthService, private tokenStorage: TokenStorageService) { }
+  constructor(
+    private authService: AuthService, 
+    private tokenStorage: TokenStorageService,
+    private injector: Injector,
+    private navbar: AppComponent,
+    private router: Router
+    ) { }
 
   ngOnInit(): void {
     if (this.tokenStorage.getToken()) {
@@ -28,6 +37,7 @@ export class LoginComponent implements OnInit {
 
   onSubmit(): void {
     const { username, password } = this.form;
+    const notifier = this.injector.get(NotificationService);
 
     this.authService.login(username, password).subscribe(
       data => {
@@ -37,7 +47,11 @@ export class LoginComponent implements OnInit {
         this.isLoginFailed = false;
         this.isLoggedIn = true;
         this.role = this.tokenStorage.getUser().role;
-        this.reloadPage();
+
+        this.navbar.ngOnInit();
+        this.router.navigate([`/movies`]);
+        
+        notifier.showSuccess('Successful login!');
       },
       err => {
         this.errorMessage = err.error.message;
@@ -49,4 +63,8 @@ export class LoginComponent implements OnInit {
   reloadPage(): void {
     window.location.reload();
   }
+
+
+
+  
 }

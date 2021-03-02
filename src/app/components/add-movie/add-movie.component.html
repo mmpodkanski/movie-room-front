@@ -1,5 +1,5 @@
 <form>
-  <div class="mb-3">
+  <div class="form-group">
     <label for="title" class="form-label">Title</label>
     <input
       type="text"
@@ -12,31 +12,33 @@
     />
   </div>
 
-  <div class="mb-3">
-    <label for="title" class="form-label">Director</label>
-    <input
-      type="text"
-      class="form-control"
-      id="title"
-      required
-      [(ngModel)]="movie.director"
-      name="title"
-    />
+  <div class="form-row">
+    <div class="form-group col-md-6">
+      <label for="title" class="form-label">Director</label>
+      <input
+        type="text"
+        class="form-control"
+        id="title"
+        required
+        [(ngModel)]="movie.director"
+        name="title"
+      />
+    </div>
+
+    <div class="form-group col-md-6">
+      <label for="title" class="form-label">Producer</label>
+      <input
+        type="text"
+        class="form-control"
+        id="title"
+        required
+        [(ngModel)]="movie.producer"
+        name="title"
+      />
+    </div>
   </div>
 
-  <div class="mb-3">
-    <label for="title" class="form-label">Producer</label>
-    <input
-      type="text"
-      class="form-control"
-      id="title"
-      required
-      [(ngModel)]="movie.producer"
-      name="title"
-    />
-  </div>
-
-  <div class="mb-3">
+  <div class="form-group">
     <label for="description" class="form-label">Description</label>
     <textarea
     class="form-control"
@@ -48,35 +50,52 @@
     ></textarea>
   </div>
 
-  <div class="mb-3">
-    <label for="actor" class="form-label">Actor</label>
+  <div class="form-group">
+    <label for="inputState">Category</label>
+    <select name="category" [(ngModel)]="movie.category" id="inputState" class="form-control">
+      <option value="ACTION">Action</option>
+      <option value="DRAMA">Drama</option>
+      <option value="COMEDY">Comedy</option>
+    </select>
+  </div>
+
+  <div class="form-group">
+    <label for="title" class="form-label">ImageUrl</label>
     <input
       type="text"
       class="form-control"
-      id="actor"
+      id="image"
       required
-      [(ngModel)]="actor"
-      name="actor"
+      [(ngModel)]="movie.imageUrl"
+      name="image"
     />
-  <button (click)="addActor()"  class="btn btn-success">Add</button>
   </div>
 
-  <h3>Choose category</h3>
-  <select name="category" [(ngModel)]="movie.category" class="form-select form-select-lg mb-3" aria-label=".form-select-lg example">
-    <option value="ACTION">Action</option>
-    <option value="DRAMA">Drama</option>
-    <option value="COMEDY">Comedy</option>
-  </select>
-  <!-- <div class="mb-3">
-    <label for="formFile" class="form-label">Image</label>
-    <input class="form-control" type="file" id="formFile">
-  </div> -->
+  <label for="actor" class="form-label">Actor</label>
+  <div class="form-row">
+    <div class="form-group col-md-5">
+      <input
+        type="text"
+        class="form-control"
+        id="actor"
+        required
+        [(ngModel)]="actor"
+        name="actor"
+      />
+    </div>
+    <div class="form-group">
+      <button (click)="addActor()"  class="btn btn-success">+</button>
+    </div>
+  </div>
 
-  <!-- <div class="container">
-    <header class="jumbotron">
-      <p>{{ error }}</p>
-    </header>
-  </div> -->
 
+  <div class="d-flex justify-content-center flex-column flex-wrap" >
+    <ul *ngFor="let actor of actors; let i = index">
+      <li class="list-group-item text-center" style="margin-top: 1px; height: 40px;">{{i+1}}. <b>{{actor}}</b></li>
+    </ul>
+  </div>
+
+<div>
   <button (click)="saveMovie()" class="btn btn-success">Submit</button>
+</div>
 </form>

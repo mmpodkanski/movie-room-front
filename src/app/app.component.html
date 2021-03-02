@@ -1,12 +1,12 @@
 <div id="app">
   <nav class="navbar navbar-expand navbar-dark bg-dark">
-    <a href="#" class="navbar-brand"><i class="fa fa-cube"></i>Movie<b>Room</b></a>  
+    <a href="#" class="navbar-brand">Movie<b>Room</b></a>  
     
     <ul class="navbar-nav mr-auto" routerLinkActive="active">
       <li class="nav-item">
         <a href="/movies" class="nav-item nav-link">Movies </a>
       </li>
-      <li class="nav-item">
+      <li class="nav-item" *ngIf="isLoggedIn">
         <a routerLink="add" class="nav-item nav-link">Add</a>
       </li>
       <li class="nav-item" *ngIf="showAdminBoard">
@@ -14,8 +14,6 @@
       </li>
     </ul>
     
-
-  
 
     <ul class="navbar-nav ml-auto" *ngIf="!isLoggedIn">
       <li class="nav-item">

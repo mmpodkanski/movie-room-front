@@ -1,7 +1,6 @@
 import { ErrorHandler, Injectable, Injector } from '@angular/core';
 import { HttpErrorResponse } from '@angular/common/http';
 
-import { LoggingService } from '../_services/logging.service';
 import { ErrorService } from '../_services/error.service';
 import { NotificationService } from '../_services/notification.service';
 
@@ -14,18 +13,15 @@ export class GlobalErrorHandler implements ErrorHandler {
 
     handleError(error: Error | HttpErrorResponse) {
         const errorService = this.injector.get(ErrorService);
-        const logger = this.injector.get(LoggingService);
         const notifier = this.injector.get(NotificationService);
 
         let message;
-        let stackTrace;
 
         if (error instanceof HttpErrorResponse) {
             const err = error.error;
 
             // Server Error
             message = errorService.getServerMessage(err);
-            stackTrace = errorService.getServerStack(err);
             notifier.showError(message);
         } else {
             // Client Error
@@ -33,9 +29,5 @@ export class GlobalErrorHandler implements ErrorHandler {
             notifier.showError(message);
         }
 
-        // Always log errors
-        logger.logError(message);
-
-        console.error(error);
     }
 }
