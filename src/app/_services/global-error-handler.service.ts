@@ -17,14 +17,19 @@ export class GlobalErrorHandler implements ErrorHandler {
 
         let message;
 
-        if (error instanceof HttpErrorResponse) {
-            const err = error.error;
-
-            // Server Error
-            message = errorService.getServerMessage(err);
-            notifier.showError(message);
+        console.log(error.message);
+        if (error instanceof HttpErrorResponse ) {
+            if (error.status == 401) {
+                notifier.showError("Prosze się zalogować!");
+            } else {
+                const err = error.error;
+                // Server Error
+                message = errorService.getServerMessage(err);
+                notifier.showError(message);
+            }
         } else {
             // Client Error
+
             message = errorService.getClientMessage(error);
             notifier.showError(message);
         }

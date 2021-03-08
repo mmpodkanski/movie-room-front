@@ -1,19 +1,43 @@
-<table class="table">
-  <thead class="thead-dark">
-    <tr>
-      <th scope="col">Id</th>
-      <th scope="col">Username</th>
-      <th scope="col">Role</th>
-      <th scope="col">Locked</th>
-    </tr>
-  </thead>
-  <tbody *ngFor="let user of users">
-    <tr>
-      <td name="userid" id="userid" type="text">{{user.id}}</td>
-      <td>{{user.username}}</td>
-      <td>{{user.role}}</td>
-      <td>{{user.locked}}</td>
-      <a (click)="toggleUserStatus(user.id)" class="btn btn-primary">Toggle</a>
-    </tr>
-  </tbody>
-</table>
+<div class="main">
+  <table class="table">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">Id</th>
+        <th scope="col">Username</th>
+        <th scope="col">Role</th>
+        <th scope="col">Locked</th>
+      </tr>
+    </thead>
+    <tbody *ngFor="let user of users">
+      <tr>
+        <td name="userid" id="userid" type="text">{{user.id}}</td>
+        <td>{{user.username}}</td>
+        <td>{{user.role}}</td>
+        <td>{{user.locked}}</td>
+        <a *ngIf="user.locked" (click)="toggleUserStatus(user.id)" class="btn btn-primary">Unban</a>
+        <a *ngIf="!user.locked" (click)="toggleUserStatus(user.id)" class="btn btn-primary">Ban</a>
+      </tr>
+    </tbody>
+  </table>
+
+  <table class="table">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">Id</th>
+        <th scope="col">Title</th>
+        <th scope="col">Director</th>
+        <th scope="col">Producer</th>
+      </tr>
+    </thead>
+    <tbody *ngFor="let movie of movies">
+      <tr>
+        <td name="movieid" id="movieid" type="text">{{movie.id}}</td>
+        <td>{{movie.title}}</td>
+        <td>{{movie.director}}</td>
+        <td>{{movie.producer}}</td>
+        <a (click)="acceptMovieRequest(movie.id)" class="btn btn-primary">Accept</a>
+        <a (click)="refuseMovieRequest(movie.id)" class="btn btn-secondary">Refuse</a>
+      </tr>
+    </tbody>
+  </table>
+</div>

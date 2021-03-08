@@ -1,5 +1,6 @@
 import { Component, Injector, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { Actor } from 'src/app/models/actor.model';
 import { Movie } from 'src/app/models/movie.model';
 import { MovieService } from 'src/app/_services/movie.service';
 import { NotificationService } from 'src/app/_services/notification.service';
@@ -12,24 +13,33 @@ import { TokenStorageService } from 'src/app/_services/token-storage.service';
 })
 export class AddMovieComponent implements OnInit {
   actor!: string;
+  hasAdminRole = false;
 
   movie: Movie = {
+    id: '',
     title: '',
     description: '',
     director: '',
     producer: '',
     category: '',
-    imageUrl: ''
+    releaseDate: '',
+    actors: [],
+    comments: [],
+    imgLogoUrl: '',
+    imgBackUrl: ''
   }
   actors: Array<string> = [];
 
   constructor(
     private movieService: MovieService,
+    private tokenStorage: TokenStorageService,
     private router: Router,
     private injector: Injector
     ) { }
 
   ngOnInit(): void {
+    const user = this.tokenStorage.getUser();
+    this.hasAdminRole = user.role.includes('ROLE_ADMIN');
   }
 
 
@@ -37,6 +47,12 @@ export class AddMovieComponent implements OnInit {
     this.actors.push(this.actor);
     console.log(this.actors);
   }
+
+  removeActor(): void {
+    this.actors.pop();
+    console.log(this.actors);
+  }
+
 
   saveMovie(): void {
     const notifier = this.injector.get(NotificationService);
@@ -46,15 +62,20 @@ export class AddMovieComponent implements OnInit {
       director: this.movie.director,
       producer: this.movie.producer,
       category: this.movie.category,
-      imageUrl: this.movie.imageUrl,
+      imgLogoUrl: this.movie.imgLogoUrl,
+      imgBackUrl: this.movie.imgBackUrl,
       actors: this.actors
     };
 
-    this.movieService.create(data)
+    this.movieService.createMovie(data)
       .subscribe(
-        data => {
+        req => {
           this.router.navigate([`/movies`]);
-          notifier.showSuccess('Movie has been added!');
+          if (this.hasAdminRole) {
+            notifier.showSuccess('Movie has been added!');
+          } else {
+            notifier.showSuccess('Movie has been send to accept list!');
+          }
       });
 
   };

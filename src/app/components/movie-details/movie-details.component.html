@@ -1,110 +1,122 @@
 
-  <div class="back container p-3 mb-5 rounded text-dark" style="margin-top: 5%;">
-    <div class="card bg-dark text-white" style="height: 200px; margin-bottom: 10px;">
-      <img class="card-img" src=".../100px270/#55595c:#373a3c/text:Card image" alt="Card image">
-      <div class="card-img-overlay">
-        <h1 class="display-4 fst-italic" style="font-size: 50px;">{{currentMovie.title}} <span class="badge bg-secondary">New</span></h1>
-        <p class="card-text">short.description</p>
-        <small class="card-text" style="color: rgb(168, 167, 167);">year</small>
+<div>
+  <div class="header">
+    <img src="{{currentMovie.imgBackUrl}}"  alt="Backgroudn image">
+    <div class="header-title">
+      <h1 style="font-size: 100px;">{{currentMovie.title}} <span class="badge bg-secondary">{{currentMovie.releaseDate}}</span></h1>
+    </div>
+  </div>
+
+  <div class="back container p-3 mb-5 rounded text-dark"> 
+    <div class="row">
+      <div class="col-md-3">
+        <img class="border shadow" src="{{currentMovie.imgLogoUrl}}" alt="..." width="100%">
       </div>
-    </div>
+      <div class="col-md-5">
+        <div class="card-body">
+          <h3>Opis</h3>
+          <p class="text-break">{{currentMovie.description}}</p>
 
-
-  <div class="row">
-    <div class="col-md-3">
-      <img class="border shadow" src="{{currentMovie.imageUrl}}" alt="..." width="100%">
-    </div>
-    <div class="col-md-5">
-      <div class="card-body">
-        <p class="h5 text-break">{{currentMovie.description}}</p>
-
-        <div style="margin-top: 15%;">
-          <h5>
-            <small class="text-muted">director: </small>{{currentMovie.director}}
-          </h5>
-          <h5>
-            <small class="text-muted">producer: </small>{{currentMovie.producer}}
-          </h5>
-          <h5>
-            <small class="text-muted">category: </small>{{currentMovie.category}}
-          </h5>
-          <h5>
-            <small class="text-muted">release date: </small>...
-          </h5>
+          <div style="margin-top: 10%; overflow: hidden;">
+            <div style="overflow: hidden; float: left;">
+              <h4 style="float: top"><p class="text-muted">Reżyser</p>{{currentMovie.director}}</h4>
+              <h4 style="float: bottom"><p class="text-muted">Producent</p>{{currentMovie.producer}}</h4>
+            </div>
+            <div style="overflow: hidden; float: right;">
+              <h4 style="float: top"><p class="text-muted">Kategoria</p>{{currentMovie.category}}</h4>
+              <h4 style="float: bottom">
+                <p class="text-muted">Premiera</p>...
+              </h4>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col" style="padding-left: 2%;">
+        <div class="p-4 mb-3 bg-light rounded shadow p-3 mb-5 bg-white rounded" style="margin-top: 25%;" >
+          <h2 style="text-align: center; font-size: 30px; margin-bottom: 0;" >Dodaj do ulubionych
+            <app-hearth-button></app-hearth-button>
+          </h2>
         </div>
       </div>
     </div>
-    <div class="col">
-      <div class="p-4 mb-3 bg-light rounded shadow-lg bg-body rounded" style="margin-top: 25%;" >
-        <h2 style="text-align: center; font-size: 30px; margin-bottom: 0;" >Follow:
-    <app-hearth-button></app-hearth-button>
+
+    <div style="margin-top: 5%">
+      <h2 class="tag_title" style="padding-top: 2%; text-align: center;">OBSADA</h2>
+      <div class="row row-cols-1 row-cols-md-4 mb-4 text-center">
+        <div *ngFor="let actor of currentMovie.actors" class="col" style="margin-top: 5%;">
+          <div class="avatar">
+            <div class="imgContainer border">
+              <img src="{{actor.imageUrl}}" alt="actor-avatar">
+            </div>
+          </div>
+          <h2 style="margin-top: 5px; margin-bottom: 0;">{{actor.firstName}} {{actor.lastName}}</h2>
+          <p>Aktor</p>
+        </div>
+      </div>
+    </div>
+
+
+
+
+    <div class="row" style="margin-top: 8%;">
+      <div class="col" style="max-width: 800px; margin: 0 auto;">
+
+        <h2 class="tag_title" style="text-align: center;">
+          Ciekawostki
         </h2>
-      </div>
-    </div>
-  </div>
-
-  <div style="margin-top: 5%">
-    <h2 class="tag_title" style="padding-top: 2%; text-align: center;">ACTORS:</h2>
-    <div class="row row-cols-1 row-cols-md-3 mb-3 text-center">
-      <div *ngFor="let actor of currentMovie.actors" class="col" style="margin-top: 5%;">
-        <svg class="bd-placeholder-img rounded-circle" width="140" height="140" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 140x140" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#777"/><text x="50%" y="50%" fill="#777" dy=".3em">140x140</text></svg>
-
-        <h2>{{actor.firstName}} {{actor.lastName}}</h2>
-        <p>{{actor.birthDate}}</p>
-        <p><a class="btn btn-secondary" href="#">View details &raquo;</a></p>
-      </div>
-    </div>
-  </div>
-
-
-  
-
-  <div class="row" style="margin-top: 5%;">
-    <div class="col">
-      <h2 class="tag_title" style="text-align: center;">
-        Interesting facts:
-      </h2>
-      <p>...</p>
-      <p>...</p>
-      <p>...</p>
-      <p>...</p>
+        <div style="margin-top: 10%; overflow: hidden;">
+          <div style="overflow: hidden; float: left; text-align: center;">
+            <h4 style="float: top;"><p class="text-muted">Wydano</p>....</h4>
+            <h4 style="float: bottom;"><p class="text-muted">Produkcja</p>....</h4>
+          </div>
+          <div style="overflow: hidden; float: right; text-align: center;">
+            <h4 style="float: top;"><p class="text-muted">Oryginalny język</p>....</h4>
+            <h4 style="float: bottom;">
+              <p class="text-muted">Network</p>...
+            </h4>
+          </div>
+        </div>
       
-
+      </div>
     </div>
+
+    <div style="margin-top: 11%;">
+      <h2 class="tag_title" style="text-align: center;">
+        Filmy, &nbsp; trailery
+      </h2>
+      <div class="card-deck" style="margin-top: 3%;">
+        <iframe style="height: 300px; width: 400px;" class="card" src="https://www.youtube.com/embed/zpOULjyy-n8?rel=0" allowfullscreen></iframe>
+        <iframe style="height: 300px; width: 400px;" class="card" src="https://www.youtube.com/embed/zpOULjyy-n8?rel=0" allowfullscreen></iframe>
+      </div>
+    </div>
+
+
+
   </div>
 
-  <div>
-    <h2 class="tag_title" style="text-align: center;">
-      Videos:
-    </h2>
-    <div class="card-deck" style="margin-top: 3%;">
-      <iframe style="height: 300px; width: 400px;" class="card" src="https://www.youtube.com/embed/zpOULjyy-n8?rel=0" allowfullscreen></iframe>
-      <iframe style="height: 300px; width: 400px;" class="card" src="https://www.youtube.com/embed/zpOULjyy-n8?rel=0" allowfullscreen></iframe>
-    </div>
-  </div>
+  <div class="back_2 container">
 
-  
+    <div *ngIf="currentMovie.comments.length > 0" style="margin-top: 30%;">
+      <h2>Komentarze</h2>
+      <div *ngFor="let comment of currentMovie.comments" class="col-md-6">
+        <div class="row g-0 border border-secondary rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative" style="background-color: aliceblue;" >
+          <div class="col p-4 d-flex flex-column position-static">
+            <strong class="d-inline-block mb-2 text-primary">{{comment.author}}</strong>
+            <h3 class="mb-0">{{comment.title}}</h3>
+            <div class="mb-1 text-muted">{{comment.createdAt.substring(0, 10)}}</div>
+            <p class="card-text mb-auto" style="margin-top: 3%;">{{comment.description}}</p>
+            <!-- <a href="#" class="stretched-link">delete</a> -->
+          </div>
+          <div class="col-auto d-none d-lg-block">
+            <svg class="bd-placeholder-img" width="150" height="165" xmlns="http://www.w3.org/2000/svg" role="img" focusable="false"><rect width="100%" height="100%" fill="#55595c"/>
+            </svg>
 
-</div>
-
-<div class="back_2 container">
-
-  <h2 style="margin-top: 30%;">Comments</h2>
-    <div *ngFor="let comment of currentMovie.comments" class="col-md-6">
-      <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative" style="background-color: aliceblue;" >
-        <div class="col p-4 d-flex flex-column position-static">
-          <strong class="d-inline-block mb-2 text-primary">{{comment.author}}</strong>
-          <h3 class="mb-0">{{comment.title}}</h3>
-          <div class="mb-1 text-muted">date</div>
-          <p class="card-text mb-auto">{{comment.description}}</p>
-          <!-- <a href="#" class="stretched-link">delete</a> -->
-        </div>
-        <div class="col-auto d-none d-lg-block">
-          <svg class="bd-placeholder-img" width="150" height="165" xmlns="http://www.w3.org/2000/svg" role="img" focusable="false"><rect width="100%" height="100%" fill="#55595c"/>
-          </svg>
-
+          </div>
         </div>
       </div>
+    </div>
+    <div style="text-align: center; color: gray;" *ngIf="currentMovie.comments.length == 0">
+      <h2>Brak komentarzy</h2>
     </div>
 
 
@@ -114,8 +126,8 @@
         <div class="col">
           <form id="algin-form">
             <div class="form-group">
-              <h3>Leave a comment:</h3> 
-              <label for="title">Title</label> 
+              <h3>Zostaw komentarz:</h3> 
+              <label for="title">Tytuł</label> 
                 <input
                   type="text"
                   class="form-control"
@@ -124,7 +136,7 @@
                   [(ngModel)]="comment.title"
                   name="title"
                 />
-              <label for="description" style="margin-top: 1%;">Description</label> 
+              <label for="description" style="margin-top: 1%;">Opis</label> 
               <textarea
               type="text"
               class="form-control"
@@ -136,16 +148,17 @@
               msg cols="30"
               rows="5" 
               class="form-control"
-               style="background-color: white;"></textarea>
+              style="background-color: white;"></textarea>
             </div>
             <div class="form-inline"> <input type="checkbox" name="check" id="checkbx" class="mr-1"> <label
-                for="subscribe">I'm accepting rules.</label> </div>
+                for="subscribe">Akceptuje zasady strony.</label> </div>
             <div class="form-group"> 
               <button (click)="addComment()" style="background-color: rgb(92, 108, 143);" id="post"
-              class="btn btn-success">Post Comment</button> </div>
+              class="btn btn-success">Publikuj komentarz</button> </div>
           </form>
         </div>
       </div>
     </div>
   </section>
+  </div>
 </div>

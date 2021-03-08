@@ -8,9 +8,9 @@
         <input type="email" class="form-control" name="email" [(ngModel)]="form.email" required email
           #email="ngModel" placeholder="Email"/>
         <div class="alert-danger" *ngIf="email.errors && f.submitted">
-          <div *ngIf="email.errors.required">Email is required</div>
+          <div *ngIf="email.errors.required">Email jest wymagany</div>
           <div *ngIf="email.errors.email">
-            Email must be a valid email address
+            Zły format email
           </div>
         </div>
       </div>
@@ -18,36 +18,36 @@
         <input type="text" class="form-control" name="username" [(ngModel)]="form.username" required minlength="3"
           maxlength="20" #username="ngModel" placeholder="Username"/>
         <div class="alert-danger" *ngIf="username.errors && f.submitted">
-          <div *ngIf="username.errors.required">Username is required</div>
+          <div *ngIf="username.errors.required">Username jest wymagany</div>
           <div *ngIf="username.errors.minlength">
-            Username must be at least 3 characters
+            Username musi mieć conajmniej 3 znaki
           </div>
           <div *ngIf="username.errors.maxlength">
-            Username must be at most 20 characters
+            Username może mieć conajwyżej 20 znaków
           </div>
         </div>
       </div>
       <div class="mb-3 center_div_form">
-        <input type="password" class="form-control" name="password" [(ngModel)]="form.password" required minlength="6"
+        <input type="password" class="form-control" name="hasło" [(ngModel)]="form.password" required minlength="6"
           #password="ngModel" placeholder="Password"/>
         <div class="alert-danger" *ngIf="password.errors && f.submitted">
-          <div *ngIf="password.errors.required">Password is required</div>
+          <div *ngIf="password.errors.required">Hasło jest wymagane</div>
           <div *ngIf="password.errors.minlength">
-            Password must be at least 6 characters
+            Hasło może mieć conajmniej 6 znaków
           </div>
         </div>
       </div>
       <div class="mb-3 center_div_form">
-        <button class="btn btn-primary btn-block">Sign Up</button>
+        <button class="btn btn-primary btn-block">Zarejestruj się</button>
       </div>
 
       <div class="alert alert-warning" *ngIf="f.submitted && isRegisterFailed">
-        Signup failed!<br />{{ errorMessage }}
+        Rejestracja się nie udała:<br />{{ errorMessage }}
       </div>
     </form>
 
     <div class="alert alert-success" *ngIf="isSuccessful">
-      Your registration is successful!
+      Sukces, udało ci się zarejestrować !
     </div>
   </div>
 </div>

@@ -51,7 +51,7 @@ export class LoginComponent implements OnInit {
         this.navbar.ngOnInit();
         this.router.navigate([`/movies`]);
         
-        notifier.showSuccess('Successful login!');
+        notifier.showSuccess('Sukces!');
       },
       err => {
         this.errorMessage = err.error.message;

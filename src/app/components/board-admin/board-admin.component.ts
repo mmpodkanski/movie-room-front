@@ -69,6 +69,17 @@ export class BoardAdminComponent implements OnInit {
           this.reloadPage();
       });
   };
+  
+  
+  refuseMovieRequest(id: any): void {
+    this.adminService.refuseMovieRequest(id)
+      .subscribe(
+        response => {
+          console.log(response);
+          this.reloadPage();
+      });
+  };
+
 
   reloadPage(): void {
     window.location.reload();

@@ -1,9 +1,10 @@
 <section class="py-5 text-center container">
   <div class="row py-lg-5">
     <div class="col-lg-6 col-md-8 mx-auto">
-      <h1 class="fw-light">Project in beta tests!</h1>
+      <h1 class="fw-light">Projekt w fazie testów!</h1>
       <hr class="my-4">
-      <p class="lead text-muted">Welcome to MovieRoom website! There you can see a lot of great movies. It's option to register, like films, add comment and others.. Created to improve skills, mostly in JAVA.</p>
+      <p class="lead text-muted">Witam na stronie MovieRoom! Możesz tutaj zobaczyć wiele świetnych filmów. 
+        Jest opcja komentowania, dodawania do ulubionych oraz dodawanie nowych filmów. Strona służy głównie do rozwijania moich prywatnych umiejętności w programowaniu!</p>
       <p>
         <a href="#" class="btn btn-primary my-2 shadow">Github</a>
         <a href="#" class="btn btn-secondary my-2 shadow" style="margin-left: 2%;">Linkedin</a>
@@ -12,23 +13,42 @@
   </div>
 </section>
 
-<div class="container">
-  <div class="row text-center">
-    <div *ngFor="let movie of movies" class="col-3 text-center">
-      <div class="card_link view overlay" style="margin-top: 25%;">
-        <div class="imgContainer shadow-sm">
-          <a (click)="goToMovie(movie)">
-            <img src="{{movie.imageUrl}}">
-          </a>
-        </div>
-        <div>
-          <a (click)="goToMovie(movie)" class="btn btn-link movie_title" style="margin-top: 5px;">{{movie.title}}</a>
-          <!-- <div class="d-flex justify-content-between align-items-center">
-            <div *ngIf="showAdminButtons" style="padding-top: 0; margin-top: 0;">
-              <button type="button" class="btn btn-outline-danger btn btn-sm" style="margin-bottom: 2px; margin-left: 2px;">Delete</button>
-              <button type="button" class="btn btn-sm btn-outline-secondary" style="margin-bottom: 2px; margin-left: 2px;">Edit</button>
-            </div>
-          </div> -->
+<div class="news">
+  <div class="news-title">
+    <h1 class="movie_title text-center" style="font-size: 80px;">NEWSY</h1>
+  </div>
+  <div class="card bg-dark text-white" style="margin-top: 5%;">
+    <img src="{{currentNews.imageUrl}}" class="card-img imgNews" alt="...">
+    <div class="card-img-overlay">
+      <a href="{{currentNews.url}}" class="card-title movie_title" style="color: white;">{{currentNews.title}}</a>
+      <!-- <p class="card-text d-flex align-items-end div_bottom" style="padding-bottom: 5%">{{currentNews.description}}</p> -->
+      <!-- <p class="card-text div_bottom" style="text-align: end;">{{currentNews.releaseDate}}</p> -->
+    </div>
+  </div>
+</div>
+
+<div class="movies" style="margin-top: 5%;">
+  <div>
+    <h1 class="movie_title text-center" style="font-size: 80px;">NAJLEPIEJ OCENIANE</h1>
+  </div>
+  <div class="container">
+    <div class="row text-center">
+      <div *ngFor="let movie of movies" class="col-3 text-center">
+        <div class="card_link view overlay" style="margin-top: 25%;">
+          <div class="imgContainer shadow-sm border border-secondary">
+            <a (click)="goToMovie(movie)">
+              <img src="{{movie.imgLogoUrl}}">
+            </a>
+          </div>
+          <div>
+            <a (click)="goToMovie(movie)" class="btn btn-link movie_title">{{movie.title}}</a>
+            <!-- <div class="d-flex justify-content-between align-items-center">
+              <div *ngIf="showAdminButtons" style="padding-top: 0; margin-top: 0;">
+                <button type="button" class="btn btn-outline-danger btn btn-sm" style="margin-bottom: 2px; margin-left: 2px;">Delete</button>
+                <button type="button" class="btn btn-sm btn-outline-secondary" style="margin-bottom: 2px; margin-left: 2px;">Edit</button>
+              </div>
+            </div> -->
+          </div>
         </div>
       </div>
     </div>
@@ -37,16 +57,16 @@
 
 
 
-<div class="card text-center shadow-sm p-3 mb-5 rounded" style="margin-top: 10%; background-color:  rgb(163, 158, 158);">
+<!-- <div class="card text-center shadow-sm p-3 mb-5 rounded" style="margin-top: 10%; background-color:  rgb(163, 158, 158);">
   <div class="lead">
-    Featured
+    News
   </div>
   <div class="card-body">
-    <h3 class="card-title"><b>News title</b></h3>
-    <p class="card-text"> {{news}} </p>
-    <a href="#" class="btn btn-primary">Articule</a>
+    <h3 class="card-title"><b>{{currentNews.title}}</b></h3>
+    <p class="card-text"> {{currentNews.description}} </p>
+    <a href="{{currentNews.url}}" class="btn btn-primary">Articule</a>
   </div>
   <div class="text-muted">
-    2 days ago
+    {{currentNews.releaseDate}}
   </div>
-</div>
+</div> -->

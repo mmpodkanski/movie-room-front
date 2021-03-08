@@ -32,6 +32,10 @@ export class AdminService {
     return this.http.patch(`${baseUrl}/requests/${id}/accept`, id);
   }
 
+  refuseMovieRequest(id: any): Observable<any> {
+    return this.http.patch(`${baseUrl}/requests/${id}/refuse`, id);
+  }
+
 
 
 }

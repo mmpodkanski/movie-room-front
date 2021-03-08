@@ -4,23 +4,23 @@
     
     <ul class="navbar-nav mr-auto" routerLinkActive="active">
       <li class="nav-item">
-        <a href="/movies" class="nav-item nav-link">Movies </a>
+        <a href="/movies" class="nav-item nav-link">Filmy </a>
       </li>
       <li class="nav-item" *ngIf="isLoggedIn">
-        <a routerLink="add" class="nav-item nav-link">Add</a>
+        <a routerLink="add" class="nav-item nav-link">Dodaj</a>
       </li>
       <li class="nav-item" *ngIf="showAdminBoard">
-        <a href="/admin/board" class="nav-item nav-link" routerLink="admin/board">Admin Board</a>
+        <a href="/admin/board" class="nav-item nav-link" routerLink="admin/board">Panel Admina</a>
       </li>
     </ul>
     
 
     <ul class="navbar-nav ml-auto" *ngIf="!isLoggedIn">
       <li class="nav-item">
-        <a href="/register" class="nav-link" routerLink="register">Sign Up</a>
+        <a href="/register" class="nav-link" routerLink="register">Rejestracja</a>
       </li>
       <li class="nav-item">
-        <a href="/login" class="nav-link" routerLink="login">Login</a>
+        <a href="/login" class="nav-link" routerLink="login">Logowanie</a>
       </li>
     </ul>
 
@@ -29,16 +29,14 @@
         <a href="/profile" class="nav-link" routerLink="profile">{{ username }}</a>
       </li>
       <li class="nav-item">
-        <a href class="nav-link" (click)="logout()">LogOut</a>
+        <a href class="nav-link" (click)="logout()">Wyloguj się</a>
       </li>
     </ul>
   </nav>
 
-  <div class="container">
-    <router-outlet></router-outlet>
-  </div>
+  <router-outlet></router-outlet>
 
-  <footer class="footer">
+  <footer class="footer" style="margin-top: 10%;">
     <p>Created by: mmpodkanski</p>
     <p>
       <a href="#">Github</a>

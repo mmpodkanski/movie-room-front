@@ -1,35 +1,34 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Movie } from 'src/app/models/movie.model';
 import { Actor } from 'src/app/models/actor.model';
 import { MovieService } from 'src/app/_services/movie.service';
 import { Comment } from 'src/app/models/comment.model';
 import { TokenStorageService } from 'src/app/_services/token-storage.service';
-import { throwError } from 'rxjs';
+
 
 @Component({
   selector: 'app-movie-details',
   templateUrl: './movie-details.component.html',
   styleUrls: ['./movie-details.component.css']
 })
-export class MovieDetailsComponent implements OnInit {
-  errorMsg?: string;
 
-  actor: Actor = {
+export class MovieDetailsComponent implements OnInit {
+  @Input() comment: Comment= {
+    ownerId: '',
+    author: '',
+    title: '',
+    description: '',
+    createdAt: ''
+  };
+  @Input() actor: Actor = {
     firstName: '',
     lastName: '',
     birthDate: ''
   };
-
-  comment: Comment = {
-    ownerId: '',
-    author: '',
-    title: '',
-    description: ''
-  };
-
-
-  currentMovie: Movie = {
+  @Input() currentMovie: Movie = {
+    id: '',
+    releaseDate: '',
     title: '',
     description: '',
     director: '',
@@ -37,8 +36,39 @@ export class MovieDetailsComponent implements OnInit {
     category: '',
     actors: [this.actor],
     comments: [this.comment],
-    imageUrl: ''
+    imgLogoUrl: '',
+    imgBackUrl: ''
   };
+  
+  errorMsg?: string;
+  selected?: boolean;
+
+  // actor: Actor = {
+  //   firstName: '',
+  //   lastName: '',
+  //   birthDate: ''
+  // };
+
+  // comment: Comment = {
+  //   ownerId: '',
+  //   author: '',
+  //   title: '',
+  //   description: '',
+  //   createdAt: ''
+  // };
+
+
+  // currentMovie: Movie = {
+  //   title: '',
+  //   description: '',
+  //   director: '',
+  //   producer: '',
+  //   category: '',
+  //   actors: [this.actor],
+  //   comments: [this.comment],
+  //   imgLogoUrl: '',
+  //   imgBackUrl: ''
+  // };
 
   constructor(
     private movieService: MovieService,
@@ -47,7 +77,7 @@ export class MovieDetailsComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.getMovie(this.route.snapshot.params.id)
+    this.getMovie(this.route.snapshot.params.id);
   }
 
   getMovie(id: string): void {
@@ -74,8 +104,12 @@ export class MovieDetailsComponent implements OnInit {
       });
   };
 
+
   reloadPage(): void {
     window.location.reload();
   };
+
+
+  
 
 }

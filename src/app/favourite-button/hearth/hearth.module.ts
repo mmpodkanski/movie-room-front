@@ -10,6 +10,7 @@ import { MatIconModule } from '@angular/material/icon';
     MatButtonModule,
     MatIconModule,
   ],
+  
   declarations: [HearthButton],
   exports: [HearthButton]
 })

@@ -1,0 +1,12 @@
+.lel {
+    position: relative;
+    margin: 0 auto;
+    max-width: 1100px;
+    overflow: hidden;
+}
+
+.removeAct {
+    position: relative;
+    cursor: pointer;
+    float: right;
+}

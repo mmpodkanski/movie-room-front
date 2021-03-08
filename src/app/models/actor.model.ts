@@ -3,4 +3,5 @@ export class Actor {
     firstName?: string;
     lastName?: string;
     birthDate?: string;
+    imageUrl?: string;
 }

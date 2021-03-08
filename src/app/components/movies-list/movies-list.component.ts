@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Movie } from 'src/app/models/movie.model';
+import { News } from 'src/app/models/news.model';
 import { MovieService } from 'src/app/_services/movie.service';
 import { PublicApiService } from 'src/app/_services/public-api.service'
 import { TokenStorageService } from 'src/app/_services/token-storage.service';
@@ -16,7 +17,15 @@ export class MoviesListComponent implements OnInit {
   isLoggedIn = false;
 
   movies?: Movie[];
-  news: string = '';
+  currentNews: News = {
+    author: '',
+    title: '',
+    description: '',
+    releaseDate: '',
+    imageUrl: '',
+    url: ''
+  };
+  // news: string = '';
   
 
   constructor(
@@ -51,10 +60,10 @@ retrieveMovies(): void {
 retrieveNews(): void {
   this.publicApi.getNews().subscribe(
     data => {
-      this.news =  data;
+      this.currentNews =  data;
     },
     err => {
-      this.news =  JSON.parse(err.error).message;
+      this.currentNews.title =  JSON.parse(err.error).message;
     }
   );
 }

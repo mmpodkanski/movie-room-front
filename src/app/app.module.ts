@@ -24,6 +24,8 @@ import { MovieDetailsComponent } from './components/movie-details/movie-details.
 import { AddMovieComponent } from './components/add-movie/add-movie.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { HearthButtonModule } from './favourite-button/hearth/hearth.module';
+import { HearthButton } from './favourite-button/hearth/hearth.component';
+import { EditMovieComponent } from './components/edit-movie/edit-movie.component';
 
 
 
@@ -37,7 +39,8 @@ import { HearthButtonModule } from './favourite-button/hearth/hearth.module';
     BoardUserComponent,
     MoviesListComponent,
     MovieDetailsComponent,
-    AddMovieComponent
+    AddMovieComponent,
+    EditMovieComponent
   ],
   imports: [
     BrowserModule,
@@ -63,6 +66,9 @@ import { HearthButtonModule } from './favourite-button/hearth/hearth.module';
     },
     { provide: ErrorHandler, 
       useClass: GlobalErrorHandler
+    },
+    {
+      provide: AppComponent
     }
   ],
   bootstrap: [AppComponent]
