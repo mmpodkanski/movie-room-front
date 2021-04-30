@@ -27,6 +27,15 @@
   </div>
 </div>
 
+
+<div class="top-rated">
+  <ngx-slick-carousel [config]="sliderConfig" class="carousel">
+    <div class="movie_image" *ngFor="let m of movies" ngxSlickItem>
+      <img src="{{m.imgLogoUrl}}" alt="{{m.title}}">
+    </div>
+  </ngx-slick-carousel>
+</div>
+
 <div class="movies" style="margin-top: 5%;">
   <div>
     <h1 class="movie_title text-center" style="font-size: 80px;">NAJLEPIEJ OCENIANE</h1>

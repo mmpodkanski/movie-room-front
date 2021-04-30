@@ -9,7 +9,9 @@ export class GlobalErrorHandler implements ErrorHandler {
 
     // Error handling is important and needs to be loaded first.
     // Because of this we should manually inject the services with Injector.
-    constructor(private injector: Injector) { }
+    constructor(
+        private injector: Injector
+        ) { }
 
     handleError(error: Error | HttpErrorResponse) {
         const errorService = this.injector.get(ErrorService);
@@ -29,7 +31,7 @@ export class GlobalErrorHandler implements ErrorHandler {
             }
         } else {
             // Client Error
-
+            console.log(error);
             message = errorService.getClientMessage(error);
             notifier.showError(message);
         }

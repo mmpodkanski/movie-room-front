@@ -39,7 +39,7 @@ export class BoardAdminComponent implements OnInit {
       .subscribe(
         data =>  {
         this.users = data;
-        console.log(data);
+        // console.log(data);
       });
   };
  
@@ -48,7 +48,7 @@ export class BoardAdminComponent implements OnInit {
       .subscribe(
         data => {
           this.movies = data;
-          console.log(data);
+          // console.log(data);
       });
   };
 
@@ -56,8 +56,8 @@ export class BoardAdminComponent implements OnInit {
     this.adminService.toggleUserStatus(id)
       .subscribe(
         response => {
-          console.log(response);
           this.reloadPage();
+          // console.log(response);
       });
   };
 
@@ -65,8 +65,8 @@ export class BoardAdminComponent implements OnInit {
     this.adminService.acceptMovieRequest(id)
       .subscribe(
         response => {
-          console.log(response);
           this.reloadPage();
+          // console.log(response);
       });
   };
   
@@ -75,8 +75,8 @@ export class BoardAdminComponent implements OnInit {
     this.adminService.refuseMovieRequest(id)
       .subscribe(
         response => {
-          console.log(response);
           this.reloadPage();
+          // console.log(response);
       });
   };
 

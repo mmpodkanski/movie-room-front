@@ -17,15 +17,14 @@ import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
 import { ProfileComponent } from './components/profile/profile.component';
 import { BoardAdminComponent } from './components/board-admin/board-admin.component';
-import { BoardUserComponent } from './components/board-user/board-user.component';
 import { FormsModule } from '@angular/forms';
 import { MoviesListComponent } from './components/movies-list/movies-list.component';
 import { MovieDetailsComponent } from './components/movie-details/movie-details.component';
 import { AddMovieComponent } from './components/add-movie/add-movie.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { HearthButtonModule } from './favourite-button/hearth/hearth.module';
-import { HearthButton } from './favourite-button/hearth/hearth.component';
 import { EditMovieComponent } from './components/edit-movie/edit-movie.component';
+import { SlickCarouselModule } from 'ngx-slick-carousel';
 
 
 
@@ -36,7 +35,6 @@ import { EditMovieComponent } from './components/edit-movie/edit-movie.component
     RegisterComponent,
     ProfileComponent,
     BoardAdminComponent,
-    BoardUserComponent,
     MoviesListComponent,
     MovieDetailsComponent,
     AddMovieComponent,
@@ -50,7 +48,8 @@ import { EditMovieComponent } from './components/edit-movie/edit-movie.component
     NgbModule,
     MatSnackBarModule,
     BrowserAnimationsModule,
-    HearthButtonModule
+    HearthButtonModule,
+    SlickCarouselModule
   ],
 
 

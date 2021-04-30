@@ -22,7 +22,7 @@ export class MovieService {
   }
   
   createMovie(data: any): Observable<any> {
-    return this.http.post(`${baseUrl}/add`, data);
+    return this.http.post(`${baseUrl}`, data);
   }
 
   updateMovie(id:any, data: any): Observable<any> {
@@ -30,7 +30,7 @@ export class MovieService {
   }
   
   createComment(id:any, data: any): Observable<any> {
-    return this.http.post(`${baseUrl}/${id}/comments/add`, data);
+    return this.http.post(`${baseUrl}/${id}/comments`, data);
   }
   
   checkFavourite(id:any): Observable<boolean> {
@@ -38,11 +38,11 @@ export class MovieService {
   }
 
   addToFavourites(id:any): Observable<any> {
-    return this.http.post(`${baseUrl}/${id}/add-fav`, null);
+    return this.http.patch(`${baseUrl}/${id}?add-fav`, null);
   }
   
   removeFromFavourites(id:any): Observable<any> {
-    return this.http.post(`${baseUrl}/${id}/remove-fav`, null);
+    return this.http.patch(`${baseUrl}/${id}?remove-fav`, null);
   }
   
 

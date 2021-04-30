@@ -22,6 +22,7 @@ export class ServerErrorInterceptor implements HttpInterceptor {
       catchError((error: HttpErrorResponse) => {
 
         if (error.status === 401) {
+          this.navbar.tokenStorageLogout();
           window.sessionStorage.clear();
           this.navbar.ngOnInit();
           this.router.navigate(['/login'])

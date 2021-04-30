@@ -1,10 +1,11 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Injector, Input, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Movie } from 'src/app/models/movie.model';
 import { Actor } from 'src/app/models/actor.model';
 import { MovieService } from 'src/app/_services/movie.service';
 import { Comment } from 'src/app/models/comment.model';
 import { TokenStorageService } from 'src/app/_services/token-storage.service';
+import { NotificationService } from 'src/app/_services/notification.service';
 
 
 @Component({
@@ -21,11 +22,15 @@ export class MovieDetailsComponent implements OnInit {
     description: '',
     createdAt: ''
   };
+
   @Input() actor: Actor = {
+    id: '',
     firstName: '',
     lastName: '',
-    birthDate: ''
+    birthDate: '',
+    imageUrl: ''
   };
+
   @Input() currentMovie: Movie = {
     id: '',
     releaseDate: '',
@@ -43,37 +48,11 @@ export class MovieDetailsComponent implements OnInit {
   errorMsg?: string;
   selected?: boolean;
 
-  // actor: Actor = {
-  //   firstName: '',
-  //   lastName: '',
-  //   birthDate: ''
-  // };
-
-  // comment: Comment = {
-  //   ownerId: '',
-  //   author: '',
-  //   title: '',
-  //   description: '',
-  //   createdAt: ''
-  // };
-
-
-  // currentMovie: Movie = {
-  //   title: '',
-  //   description: '',
-  //   director: '',
-  //   producer: '',
-  //   category: '',
-  //   actors: [this.actor],
-  //   comments: [this.comment],
-  //   imgLogoUrl: '',
-  //   imgBackUrl: ''
-  // };
-
   constructor(
     private movieService: MovieService,
     private tokenStorage: TokenStorageService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private injector: Injector
   ) { }
 
   ngOnInit(): void {
@@ -85,10 +64,12 @@ export class MovieDetailsComponent implements OnInit {
       .subscribe(
         data => {
           this.currentMovie = data;
+          this.checkAndUpdateCategory();
       });
   }
 
   addComment(): void {
+    const notifier = this.injector.get(NotificationService);
     const userId = this.tokenStorage.getUser().id;
     const data = {
       ownerId: userId,
@@ -101,14 +82,37 @@ export class MovieDetailsComponent implements OnInit {
         response => {
           console.log(response);
           this.reloadPage();
-      });
+        });
+    
+    var logMe = function () {
+      notifier.showSuccess('Komentarz został dodany!');
+    };
+    
+    setTimeout(logMe, 5000);
+
   };
+
+  checkAndUpdateCategory(): void {
+    switch (this.currentMovie.category) {
+      case "DRAMA":
+        this.currentMovie.category = "DRAMAT";
+        break;
+      case "ACTION":
+        this.currentMovie.category = "AKCJA";
+        break;
+      case "COMEDY":
+        this.currentMovie.category = "KOMEDIA";
+        break;
+    };
+  }
 
 
   reloadPage(): void {
     window.location.reload();
   };
 
+
+  
 
   
 

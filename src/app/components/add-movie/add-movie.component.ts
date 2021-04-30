@@ -1,6 +1,6 @@
 import { Component, Injector, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { Actor } from 'src/app/models/actor.model';
+import { Actor, ActorReq } from 'src/app/models/actor.model';
 import { Movie } from 'src/app/models/movie.model';
 import { MovieService } from 'src/app/_services/movie.service';
 import { NotificationService } from 'src/app/_services/notification.service';
@@ -12,7 +12,10 @@ import { TokenStorageService } from 'src/app/_services/token-storage.service';
   styleUrls: ['./add-movie.component.css']
 })
 export class AddMovieComponent implements OnInit {
-  actor!: string;
+
+  firstName: string = '';
+  lastName: string = '';
+
   hasAdminRole = false;
 
   movie: Movie = {
@@ -28,7 +31,16 @@ export class AddMovieComponent implements OnInit {
     imgLogoUrl: '',
     imgBackUrl: ''
   }
-  actors: Array<string> = [];
+
+  // actor: ActorReq = {
+  //   firstName: '',
+  //   lastName: ''
+  // };
+
+  actors: Array<ActorReq> = [];
+
+
+
 
   constructor(
     private movieService: MovieService,
@@ -44,12 +56,15 @@ export class AddMovieComponent implements OnInit {
 
 
   addActor(): void {
-    this.actors.push(this.actor);
+    let actor = new ActorReq();
+    actor.firstName = this.firstName;
+    actor.lastName = this.lastName;
+    this.actors.push(actor);
     console.log(this.actors);
   }
 
-  removeActor(): void {
-    this.actors.pop();
+  removeActor(index: any): void {
+    this.actors.splice(index, 1);
     console.log(this.actors);
   }
 
@@ -61,6 +76,7 @@ export class AddMovieComponent implements OnInit {
       description: this.movie.description,
       director: this.movie.director,
       producer: this.movie.producer,
+      releaseDate: this.movie.releaseDate,
       category: this.movie.category,
       imgLogoUrl: this.movie.imgLogoUrl,
       imgBackUrl: this.movie.imgBackUrl,
@@ -69,12 +85,14 @@ export class AddMovieComponent implements OnInit {
 
     this.movieService.createMovie(data)
       .subscribe(
-        req => {
+        resp => {
           this.router.navigate([`/movies`]);
           if (this.hasAdminRole) {
-            notifier.showSuccess('Movie has been added!');
+            // notifier.showSuccess('Movie has been added!');
+            notifier.showSuccess('Film został dodany!');
           } else {
-            notifier.showSuccess('Movie has been send to accept list!');
+            // notifier.showSuccess('Movie has been send to accept list!');
+            notifier.showSuccess('Film został dodany do listy oczekujących!');
           }
       });
 

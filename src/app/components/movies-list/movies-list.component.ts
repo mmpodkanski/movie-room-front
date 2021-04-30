@@ -25,7 +25,13 @@ export class MoviesListComponent implements OnInit {
     imageUrl: '',
     url: ''
   };
-  // news: string = '';
+
+  sliderConfig = {
+    slidesToShow: 5,
+    slidesToScroll: 2,
+    arrows: true,
+    autoplay: true
+  };
   
 
   constructor(
@@ -48,6 +54,8 @@ ngOnInit(): void {
   this.retrieveMovies();
   this.retrieveNews();
 }
+
+
 
 retrieveMovies(): void {
   this.movieService.getAll()

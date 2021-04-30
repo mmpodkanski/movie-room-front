@@ -28,7 +28,11 @@ export class AppComponent implements OnInit {
   }
 
   logout(): void {
-    this.tokenStorageService.signOut();
+    this.tokenStorageLogout();
     window.location.reload();
+  }
+
+  tokenStorageLogout(): void {
+    this.tokenStorageService.signOut();
   }
 }

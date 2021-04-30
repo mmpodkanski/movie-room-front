@@ -23,6 +23,29 @@
   </ul>
 </div>
 
+
+<div class="movies" style="margin-top: 5%;">
+  <div>
+    <h1 class="movie_title text-center" style="font-size: 80px;">ULUBIONE</h1>
+  </div>
+  <div class="container">
+    <div class="row text-center">
+      <div *ngFor="let movie of movies" class="col-3 text-center">
+        <div class="card_link view overlay" style="margin-top: 25%;">
+          <div class="imgContainer shadow-sm border border-secondary">
+            <a (click)="goToMovie(movie)">
+              <img src="{{movie.imgLogoUrl}}">
+            </a>
+          </div>
+          <div>
+            <a (click)="goToMovie(movie)" class="btn btn-link movie_title">{{movie.title}}</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
 <ng-template #loggedOut>
   Proszę zaloguj się!
 </ng-template>

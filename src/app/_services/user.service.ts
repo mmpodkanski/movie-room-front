@@ -1,8 +1,9 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { Movie } from '../models/movie.model';
 
-const API_URL = 'http://localhost:8080/profile/';
+const baseUrl = 'http://localhost:8080/users';
 
 @Injectable({
   providedIn: 'root'
@@ -10,7 +11,7 @@ const API_URL = 'http://localhost:8080/profile/';
 export class UserService {
   constructor(private http: HttpClient) { }
 
-  getUserBoard(): Observable<any> {
-    return this.http.get(API_URL + 'fav', { responseType: 'text' });
+  getUserFavourites(id: any): Observable<Movie[]> {
+    return this.http.get<Movie[]>(`${baseUrl}/${id}/favourites`);
   }
 }

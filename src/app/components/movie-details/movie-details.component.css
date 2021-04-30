@@ -9,6 +9,8 @@ h1 {
     justify-content: center;
     align-items: center;
 }
+
+
 /* 
 span {
     margin: 0 auto;
@@ -88,7 +90,7 @@ p {
     vertical-align: middle;
     margin: 0 auto;
     width: 180px;
-    height: auto;
+    height: 267px;
     overflow: hidden;
     border-radius: 25px;
 }
