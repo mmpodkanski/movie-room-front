@@ -1,11 +1,12 @@
 <div class="main">
-  <table class="table">
+  <h1>Lista użytkowników</h1>
+  <table style="width: 113%;" class="table">
     <thead class="thead-dark">
       <tr>
         <th scope="col">Id</th>
-        <th scope="col">Username</th>
-        <th scope="col">Role</th>
-        <th scope="col">Locked</th>
+        <th scope="col">Nazwa użytkownika</th>
+        <th scope="col">Rola</th>
+        <th scope="col">Zablokowany</th>
       </tr>
     </thead>
     <tbody *ngFor="let user of users">
@@ -20,13 +21,14 @@
     </tbody>
   </table>
 
+  <h1>Prośby o dodanie filmu</h1>
   <table class="table">
     <thead class="thead-dark">
       <tr>
         <th scope="col">Id</th>
-        <th scope="col">Title</th>
-        <th scope="col">Director</th>
-        <th scope="col">Producer</th>
+        <th scope="col">Tytuł</th>
+        <th scope="col">Reżyser</th>
+        <th scope="col">Scenarzysta</th>
       </tr>
     </thead>
     <tbody *ngFor="let movie of movies">
@@ -34,10 +36,13 @@
         <td name="movieid" id="movieid" type="text">{{movie.id}}</td>
         <td>{{movie.title}}</td>
         <td>{{movie.director}}</td>
-        <td>{{movie.producer}}</td>
+        <td>{{movie.writer}}</td>
         <a (click)="acceptMovieRequest(movie.id)" class="btn btn-primary">Accept</a>
         <a (click)="refuseMovieRequest(movie.id)" class="btn btn-secondary">Refuse</a>
       </tr>
     </tbody>
   </table>
+  <div style="margin-left: auto; margin-right: auto; position: relative; text-align: center"> 
+    <h2 *ngIf="!areRequests">Brak nowych zapytań</h2>
+  </div>
 </div>

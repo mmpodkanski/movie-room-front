@@ -42,14 +42,14 @@
       </div>
 
       <div class="form-group col-md-6">
-        <label for="producer" class="form-label">Producent</label>
+        <label for="writer" class="form-label">Scenariusz</label>
         <input
           type="text"
           class="form-control shadow-sm"
-          id="producer"
+          id="writer"
           required
-          [(ngModel)]="movie.producer"
-          name="producer"
+          [(ngModel)]="movie.writer"
+          name="writer"
         />
       </div>
     </div>
@@ -72,6 +72,10 @@
         <option value="ACTION">Akcja</option>
         <option value="DRAMA">Dramat</option>
         <option value="COMEDY">Komedia</option>
+        <option value="FANTASY">Fantasy</option>
+        <option value="HORROR">HORROR</option>
+        <option value="ROMANCE">Romans</option>
+        <option value="THRILLER">Thriller</option>
       </select>
     </div>
 

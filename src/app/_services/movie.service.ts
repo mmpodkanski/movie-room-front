@@ -16,6 +16,14 @@ export class MovieService {
   getAll(): Observable<Movie[]> {
     return this.http.get<Movie[]>(baseUrl);
   }
+  
+  getAllTopRated(): Observable<Movie[]> {
+    return this.http.get<Movie[]>(`${baseUrl}?top-rated`);
+  }
+  
+  getAllNewest(): Observable<Movie[]> {
+    return this.http.get<Movie[]>(`${baseUrl}?new-added`);
+  }
 
   get(id: any): Observable<Movie> {
     return this.http.get<Movie>(`${baseUrl}/${id}`);
@@ -27,6 +35,10 @@ export class MovieService {
 
   updateMovie(id:any, data: any): Observable<any> {
     return this.http.patch(`${baseUrl}/${id}/edit`, data);
+  }
+
+  deleteMovie(id: any): Observable<any> {
+    return this.http.delete(`${baseUrl}/${id}`);
   }
   
   createComment(id:any, data: any): Observable<any> {

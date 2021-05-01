@@ -6,7 +6,7 @@ export interface Movie {
   title: string;
   description: string;
   director: string;
-  producer: string;
+  writer: string;
   category: string;
   actors: Array<Actor>;
   comments: Array<Comment>;

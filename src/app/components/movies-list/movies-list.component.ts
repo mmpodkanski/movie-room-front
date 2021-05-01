@@ -17,6 +17,9 @@ export class MoviesListComponent implements OnInit {
   isLoggedIn = false;
 
   movies?: Movie[];
+  topRatedMovies?: Movie[];
+  newestMovies?: Movie[];
+
   currentNews: News = {
     author: '',
     title: '',
@@ -27,7 +30,7 @@ export class MoviesListComponent implements OnInit {
   };
 
   sliderConfig = {
-    slidesToShow: 5,
+    slidesToShow: 7,
     slidesToScroll: 2,
     arrows: true,
     autoplay: true
@@ -62,6 +65,18 @@ retrieveMovies(): void {
     .subscribe(
       data => {
         this.movies = data;
+      });
+
+  this.movieService.getAllTopRated()
+    .subscribe(
+      data => {
+        this.topRatedMovies = data;
+      });
+
+  this.movieService.getAllNewest()
+    .subscribe(
+      data => {
+        this.newestMovies = data;
       });
 }
 

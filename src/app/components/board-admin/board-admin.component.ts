@@ -12,6 +12,7 @@ import { UserService } from '../../_services/user.service';
 export class BoardAdminComponent implements OnInit {
   users?: User[];
   movies?: Movie[];
+  areRequests?: boolean;
 
   user: User = {
     id: '',
@@ -32,6 +33,9 @@ export class BoardAdminComponent implements OnInit {
   ngOnInit(): void {
     this.showUsersList();
     this.showMoviesToAccept();
+    if(this.movies === undefined) {
+      this.areRequests = false;
+    }
   }
 
   showUsersList(): void {

@@ -3,11 +3,13 @@
     <div class="col-lg-6 col-md-8 mx-auto">
       <h1 class="fw-light">Projekt w fazie testów!</h1>
       <hr class="my-4">
-      <p class="lead text-muted">Witam na stronie MovieRoom! Możesz tutaj zobaczyć wiele świetnych filmów. 
-        Jest opcja komentowania, dodawania do ulubionych oraz dodawanie nowych filmów. Strona służy głównie do rozwijania moich prywatnych umiejętności w programowaniu!</p>
+      <p class="lead text-muted">
+    Witam na stronie MovieRoom! Jako użytkownik masz możliwość 
+    komentowania, dodawania do ulubionych czy nawet publikacji nowych filmów.
+    Aplikacja służy głównie do rozwijania moich prywatnych umiejętności w programowaniu!</p>
       <p>
-        <a href="#" class="btn btn-primary my-2 shadow">Github</a>
-        <a href="#" class="btn btn-secondary my-2 shadow" style="margin-left: 2%;">Linkedin</a>
+        <a href="https://github.com/mmpodkanski" class="btn btn-primary my-2 shadow">Github</a>
+        <a href="https://www.linkedin.com/in/micha%C5%82-podka%C5%84ski-0b1aab162/" class="btn btn-secondary my-2 shadow" style="margin-left: 2%;">Linkedin</a>
       </p>
     </div>
   </div>
@@ -28,17 +30,46 @@
 </div>
 
 
-<div class="top-rated">
+ <div class="top-rated">
+  <div>
+    <h1 class="movie_title_white text-center" style="font-size: 80px;">NAJNOWSZE</h1>
+  </div>
   <ngx-slick-carousel [config]="sliderConfig" class="carousel">
-    <div class="movie_image" *ngFor="let m of movies" ngxSlickItem>
-      <img src="{{m.imgLogoUrl}}" alt="{{m.title}}">
+    <div  class="card_link" *ngFor="let m of newestMovies" ngxSlickItem>
+      <div class="imgContainer">
+        <a (click)="goToMovie(m)">
+          <img src="{{m.imgLogoUrl}}">
+        </a>
+      </div>
     </div>
   </ngx-slick-carousel>
-</div>
+</div> 
 
 <div class="movies" style="margin-top: 5%;">
   <div>
     <h1 class="movie_title text-center" style="font-size: 80px;">NAJLEPIEJ OCENIANE</h1>
+  </div>
+  <div class="container">
+    <div class="row text-center">
+      <div *ngFor="let movie of topRatedMovies" class="col-3 text-center">
+        <div class="card_link view overlay" style="margin-top: 25%;">
+          <div class="imgContainer shadow-sm border border-secondary">
+            <a (click)="goToMovie(movie)">
+              <img src="{{movie.imgLogoUrl}}">
+            </a>
+          </div>
+          <div>
+            <a (click)="goToMovie(movie)" class="btn btn-link movie_title">{{movie.title}}</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="movies" style="margin-top: 5%;">
+  <div>
+    <h1 class="movie_title text-center" style="font-size: 80px;">WSZYSTKIE</h1>
   </div>
   <div class="container">
     <div class="row text-center">
@@ -51,31 +82,9 @@
           </div>
           <div>
             <a (click)="goToMovie(movie)" class="btn btn-link movie_title">{{movie.title}}</a>
-            <!-- <div class="d-flex justify-content-between align-items-center">
-              <div *ngIf="showAdminButtons" style="padding-top: 0; margin-top: 0;">
-                <button type="button" class="btn btn-outline-danger btn btn-sm" style="margin-bottom: 2px; margin-left: 2px;">Delete</button>
-                <button type="button" class="btn btn-sm btn-outline-secondary" style="margin-bottom: 2px; margin-left: 2px;">Edit</button>
-              </div>
-            </div> -->
           </div>
         </div>
       </div>
     </div>
   </div>
 </div>
-
-
-
-<!-- <div class="card text-center shadow-sm p-3 mb-5 rounded" style="margin-top: 10%; background-color:  rgb(163, 158, 158);">
-  <div class="lead">
-    News
-  </div>
-  <div class="card-body">
-    <h3 class="card-title"><b>{{currentNews.title}}</b></h3>
-    <p class="card-text"> {{currentNews.description}} </p>
-    <a href="{{currentNews.url}}" class="btn btn-primary">Articule</a>
-  </div>
-  <div class="text-muted">
-    {{currentNews.releaseDate}}
-  </div>
-</div> -->

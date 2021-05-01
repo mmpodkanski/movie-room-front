@@ -5,34 +5,28 @@
 .top-rated {
   width: 100%;
   height: 500px;
-  margin: 10% auto;
+  margin: 5% auto;
   position: relative;
   overflow: hidden;
   background-color: black;
 }
 
-.movie_image {
-  width: 230px;
-  height: 300px;
-  position: relative;
-  overflow: hidden;
-  margin: 0 auto;
-
-}
-
-.movie_image img {
+.movie_block img {
   width: 100%;
   height: 100%;
-  margin: 20px;
+  padding-left: 10%;
 }
 
 .carousel {
-  max-width: 1200px;
-  height: 100%;
-  justify-content: center;
-  align-items: center;
+  max-width: 1800px;
+  padding: auto;
+  margin-left: auto;
+  margin-right: auto;
   margin: 0 auto;
-  position: absolute;
+  position: relative;
+  top: 40%;
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
 }
 
 h1 {
@@ -74,6 +68,19 @@ h1 {
   text-shadow: 0.2px 0.2px #707070;
 	color: rgb(0, 0, 0);
   margin: 0 auto;
+  left: 50%;
+}
+
+.movie_title_white{
+	font-size: 20px;
+  font-weight: 700;
+  line-height: 30px;
+  font-family: PT Sans Narrow;
+  text-shadow: 0.2px 0.2px #707070;
+	color: rgb(255, 255, 255);
+  position: relative;
+  margin: auto;
+  margin-top: 2%;
 }
 
 
@@ -103,7 +110,7 @@ h1 {
   overflow: hidden;
 }
 
-.card_link .imgContainer {
+.card_link .imgContainer{
   margin: auto;
   overflow: hidden;
   width: 230px;

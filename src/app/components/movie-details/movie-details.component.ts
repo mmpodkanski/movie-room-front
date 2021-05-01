@@ -6,6 +6,7 @@ import { MovieService } from 'src/app/_services/movie.service';
 import { Comment } from 'src/app/models/comment.model';
 import { TokenStorageService } from 'src/app/_services/token-storage.service';
 import { NotificationService } from 'src/app/_services/notification.service';
+import { not } from '@angular/compiler/src/output/output_ast';
 
 
 @Component({
@@ -37,7 +38,7 @@ export class MovieDetailsComponent implements OnInit {
     title: '',
     description: '',
     director: '',
-    producer: '',
+    writer: '',
     category: '',
     actors: [this.actor],
     comments: [this.comment],
@@ -47,16 +48,30 @@ export class MovieDetailsComponent implements OnInit {
   
   errorMsg?: string;
   selected?: boolean;
+  isLoggedIn = false;
+  showAdminButtons = false;
+  role: string = '';
 
   constructor(
     private movieService: MovieService,
     private tokenStorage: TokenStorageService,
     private route: ActivatedRoute,
-    private injector: Injector
+    private injector: Injector,
+    private router: Router
   ) { }
 
   ngOnInit(): void {
     this.getMovie(this.route.snapshot.params.id);
+
+    this.isLoggedIn = !!this.tokenStorage.getToken();
+
+    if (this.isLoggedIn) {
+      const user = this.tokenStorage.getUser();
+      this.role = user.role;
+
+      this.showAdminButtons = this.role.includes('ROLE_ADMIN');
+    }
+    
   }
 
   getMovie(id: string): void {
@@ -69,7 +84,6 @@ export class MovieDetailsComponent implements OnInit {
   }
 
   addComment(): void {
-    const notifier = this.injector.get(NotificationService);
     const userId = this.tokenStorage.getUser().id;
     const data = {
       ownerId: userId,
@@ -83,13 +97,6 @@ export class MovieDetailsComponent implements OnInit {
           console.log(response);
           this.reloadPage();
         });
-    
-    var logMe = function () {
-      notifier.showSuccess('Komentarz został dodany!');
-    };
-    
-    setTimeout(logMe, 5000);
-
   };
 
   checkAndUpdateCategory(): void {
@@ -103,7 +110,29 @@ export class MovieDetailsComponent implements OnInit {
       case "COMEDY":
         this.currentMovie.category = "KOMEDIA";
         break;
+      case "FANTASY":
+        this.currentMovie.category = "KOMEDIA";
+        break;
+      case "ROMANCE":
+        this.currentMovie.category = "ROMANS";
+        break;
     };
+  }
+
+
+  editMovie(): void {
+    this.router.navigate([`/movies/${this.currentMovie.id}/edit`]);
+  }
+
+  deleteMovie(): void {
+    const notifier = this.injector.get(NotificationService);
+    this.movieService.deleteMovie(this.currentMovie.id)
+    .subscribe(
+      req => {
+        this.router.navigate([`/movies`]);
+        notifier.showSuccess("Film został usunięty !");
+      }
+    )
   }
 
 

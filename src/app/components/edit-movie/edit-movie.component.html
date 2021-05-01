@@ -12,17 +12,7 @@
             [(ngModel)]="currentMovie.title"
             name="title"
             value="{{currentMovie.title}}"
-            />
-            <span class="badge bg-secondary">
-                <input
-                type="text"
-                class="form-control shadow-sm"
-                id="currentMovie.releaseDate"
-                required
-                [(ngModel)]="currentMovie.releaseDate"
-                name="date"
-                value="{{currentMovie.releaseDate}}"
-                /></span></h1>
+            /></h1>
                 
             <input
                 type="text"
@@ -65,7 +55,7 @@
                     </p>
             
                     <div style="margin-top: 10%; overflow: hidden;">
-                        <div style="overflow: hidden; float: left;">
+                        <div style="overflow: hidden; float: left; width: 45%;">
                             <h4 style="float: top"><p class="text-muted">Reżyser</p>
                                 <input
                                     type="text"
@@ -77,30 +67,44 @@
                                     value="{{currentMovie.director}}"
                                 />
                             </h4>
-                            <h4 style="float: bottom"><p class="text-muted">Producent</p>
+                            <h4 style="float: bottom"><p class="text-muted">Scenarzysta</p>
                                 <input
                                     type="text"
                                     class="form-control shadow-sm"
-                                    id="producer"
+                                    id="writer"
                                     required
-                                    [(ngModel)]="currentMovie.producer"
-                                    name="producer"
-                                    value="{{currentMovie.producer}}"
+                                    [(ngModel)]="currentMovie.writer"
+                                    name="writer"
+                                    value="{{currentMovie.writer}}"
                                 />
                             </h4>
                         </div>
+
                         <div style="overflow: hidden; float: right;">
                             <h4 style="float: top"><p class="text-muted">Kategoria</p>
                                 <select name="category" value="{{currentMovie.category}}" [(ngModel)]="currentMovie.category" id="inputState" class="form-control shadow-sm">
                                     <option value="ACTION">Akcja</option>
                                     <option value="DRAMA">Dramat</option>
                                     <option value="COMEDY">Komedia</option>
+                                    <option value="FANTASY">Fantasy</option>
+                                    <option value="HORROR">HORROR</option>
+                                    <option value="ROMANCE">Romans</option>
+                                    <option value="THRILLER">Thriller</option>
                                 </select>
                                 
                             </h4>
-                            <h4 style="float: bottom">
-                                <p class="text-muted">Premiera</p>...
+                            <h4 style="float: bottom"><p class="text-muted">Premiera</p>
+                                <input
+                                    type="text"
+                                    class="form-control shadow-sm"
+                                    id="releaseDate"
+                                    required
+                                    [(ngModel)]="currentMovie.releaseDate"
+                                    name="releaseDate"
+                                    value="{{currentMovie.releaseDate}}"
+                                />
                             </h4>
+
                         </div>
                     </div>
                 </div>

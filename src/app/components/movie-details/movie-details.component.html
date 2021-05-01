@@ -11,6 +11,10 @@
     <div class="row">
       <div class="col-md-3">
         <img class="border shadow" src="{{currentMovie.imgLogoUrl}}" alt="..." width="100%">
+        <div *ngIf="showAdminButtons" style="padding-top: 0; margin-top: 0;">
+          <button type="button" (click)="deleteMovie()" class="btn btn-outline-danger btn btn-sm" style="margin-bottom: 2px; margin-left: 2px;">Delete</button>
+          <button type="button" (click)="editMovie()" class="btn btn-sm btn-outline-secondary" style="margin-bottom: 2px; margin-left: 2px;">Edit</button>
+        </div>
       </div>
       <div class="col-md-5">
         <div class="card-body">
@@ -20,7 +24,7 @@
           <div style="margin-top: 10%; overflow: hidden;">
             <div style="overflow: hidden; float: left;">
               <h4 style="float: top"><p class="text-muted">Reżyser</p>{{currentMovie.director}}</h4>
-              <h4 style="float: bottom"><p class="text-muted">Producent</p>{{currentMovie.producer}}</h4>
+              <h4 style="float: bottom"><p class="text-muted">Scenariusz</p>{{currentMovie.writer}}</h4>
             </div>
             <div style="overflow: hidden; float: right;">
               <h4 style="float: top"><p class="text-muted">Kategoria</p>{{currentMovie.category}}</h4>
