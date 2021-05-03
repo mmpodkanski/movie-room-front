@@ -34,10 +34,10 @@ export class MovieService {
   }
 
   updateMovie(id:any, data: any): Observable<any> {
-    return this.http.patch(`${baseUrl}/${id}/edit`, data);
+    return this.http.patch(`${baseUrl}/${id}`, data);
   }
 
-  deleteMovie(id: any): Observable<any> {
+  deleteMovieById(id: any): Observable<any> {
     return this.http.delete(`${baseUrl}/${id}`);
   }
   
@@ -56,12 +56,7 @@ export class MovieService {
   removeFromFavourites(id:any): Observable<any> {
     return this.http.patch(`${baseUrl}/${id}?remove-fav`, null);
   }
-  
 
-
-  // delete(id: any): Observable<any> {
-  //   return this.http.delete(`${baseUrl}/${id}`);
-  // }
 
 
 }

@@ -1,0 +1,27 @@
+.col-md-3 img {
+    width: 230px;
+    height: 300px;
+}
+
+.row {
+    margin: 0 auto;
+}
+
+h1 {
+    position: relative;
+    top: 0;
+    font: 400 100px/100px Roboto, "Helvetica Neue", sans-serif;
+    margin: 0 auto;
+    overflow: hidden;
+    justify-content: center;
+    align-items: center;
+}
+
+p {
+    font-family: 'Source Sans Pro', Arial, sans-serif;
+    font-weight: 500;
+    font-size: 17px;
+    display: block;
+    box-sizing: border-box;
+    margin-bottom: 2px;
+}

@@ -1,0 +1,67 @@
+<div class="back container" style="padding-top: 5%;">
+    <div class="row row-cols-2">
+        <div class="col-md-3">
+          <img class="border shadow" src="{{currentActor.imageUrl}}" alt="..." width="100%">
+          <h1 style="font-size: 100px;">
+            <input
+            type="text"
+            class="form-control shadow-sm"
+            id="currentActor.imageUrl"
+            required
+            [(ngModel)]="currentActor.imageUrl"
+            name="imageUrl"
+            value="{{currentActor.imageUrl}}"
+            /></h1>
+        </div>
+        <div class="col">
+            <div class="card-body">
+                <div style="overflow: hidden; float: left;">
+                    <h4 style="float: top"><p class="text-muted">Imię</p>
+                        <input
+                        type="text"
+                        class="form-control shadow-sm"
+                        id="currentActor.firstName"
+                        required
+                        [(ngModel)]="currentActor.firstName"
+                        name="firstName"
+                        value="{{currentActor.firstName}}"
+                        />
+                    </h4>
+                    <h4 style="float: bottom"><p class="text-muted">Data urodzenia</p>
+                    <input
+                        type="text"
+                        class="form-control shadow-sm"
+                        id="currentActor.birthDate"
+                        required
+                        [(ngModel)]="currentActor.birthDate"
+                        name="birthDate"
+                        value="{{currentActor.birthDate}}"
+                        />
+                    </h4>
+                </div>
+                <div style="overflow: hidden; float: right;">
+                    <h4 style="float: top"><p class="text-muted">Nazwisko</p>
+                        <input
+                        type="text"
+                        class="form-control shadow-sm"
+                        id="currentActor.lastName"
+                        required
+                        [(ngModel)]="currentActor.lastName"
+                        name="lastName"
+                        value="{{currentActor.lastName}}"
+                        /></h4>
+                    <h4 style="float: bottom"><p class="text-muted">Płeć</p>
+                        <select name="gender" value="{{currentActor.gender}}" [(ngModel)]="currentActor.gender" id="inputState" class="form-control shadow-sm">
+                            <option value="MAN">Mężczyzna</option>
+                            <option value="WOMEN">Kobieta</option>
+                        </select>
+                    </h4>
+                </div>
+            </div>
+          </div>
+    </div>
+
+    <div class="div_button shadow-sm">
+        <button (click)="editActor()" class="btn button-edit"><h3>Update</h3></button>
+    </div>
+</div>

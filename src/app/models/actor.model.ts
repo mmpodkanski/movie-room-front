@@ -4,6 +4,7 @@ export class Actor {
     lastName?: string;
     birthDate?: string;
     imageUrl?: string;
+    gender?: string;
 }
 
 export class ActorReq {

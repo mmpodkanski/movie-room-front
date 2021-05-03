@@ -50,7 +50,9 @@
         <div *ngFor="let actor of currentMovie.actors" class="col" style="margin-top: 5%;">
           <div class="avatar">
             <div class="imgContainer border">
-              <img src="{{actor.imageUrl}}" alt="actor-avatar">
+              <a (click)="goToActor(actor.id)">
+                <img src="{{actor.imageUrl}}" alt="actor-avatar">
+              </a>
             </div>
           </div>
           <h2 style="margin-top: 5px; margin-bottom: 0;">{{actor.firstName}} {{actor.lastName}}</h2>

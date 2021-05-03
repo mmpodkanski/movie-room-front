@@ -1,14 +1,16 @@
 @import url(https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css);
 
-/* h1 {
+.removeAct {
     position: relative;
-    top: 0;
-    font: 400 100px/100px Roboto, "Helvetica Neue", sans-serif;
-    margin: 0 auto;
-    overflow: hidden;
+    cursor: pointer;
+    float: right;
+}
+
+.center {
+    display: flex;
     justify-content: center;
     align-items: center;
-} */
+}
 
 .div_button {
     overflow: hidden;
@@ -16,7 +18,7 @@
     align-items: center;
     height: auto;
     width: 100px;
-    margin:0 auto;
+    margin: 0 auto;
 }
 
 .button-edit {

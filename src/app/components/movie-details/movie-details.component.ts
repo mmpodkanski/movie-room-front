@@ -126,13 +126,17 @@ export class MovieDetailsComponent implements OnInit {
 
   deleteMovie(): void {
     const notifier = this.injector.get(NotificationService);
-    this.movieService.deleteMovie(this.currentMovie.id)
-    .subscribe(
-      req => {
-        this.router.navigate([`/movies`]);
-        notifier.showSuccess("Film został usunięty !");
-      }
+    this.movieService.deleteMovieById(this.currentMovie.id)
+      .subscribe(
+        req => {
+          this.router.navigate([`/movies`]);
+          notifier.showSuccess("Film został usunięty !");
+        }
     )
+  }
+
+  goToActor(id: any) {
+    this.router.navigate([`/actors/${id}`]);
   }
 
 

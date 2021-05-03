@@ -1,0 +1,16 @@
+.div_button {
+    overflow: hidden;
+    justify-content: center;
+    align-items: center;
+    height: auto;
+    width: 100px;
+    margin: 0 auto;
+}
+
+.button-edit {
+    background: rgb(66, 184, 221);
+    height: 100%;
+    width: 100%;
+    margin: 0 auto;
+    border: 1px red solid;
+}

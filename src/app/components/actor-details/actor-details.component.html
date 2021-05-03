@@ -1,0 +1,23 @@
+<div class="back container" style="padding-top: 5%;">
+    <div class="row row-cols-2">
+        <div class="col-md-3">
+          <img class="border shadow" src="{{currentActor.imageUrl}}" alt="..." width="100%">
+          <div *ngIf="showAdminButtons" style="padding-top: 0; margin-top: 0;">
+            <button type="button" (click)="deleteActor()" class="btn btn-outline-danger btn btn-sm" style="margin-bottom: 2px; margin-left: 2px;">Delete</button>
+            <button type="button" (click)="editActor()" class="btn btn-sm btn-outline-secondary" style="margin-bottom: 2px; margin-left: 2px;">Edit</button>
+          </div>
+        </div>
+        <div class="col">
+            <div class="card-body">
+                <div style="overflow: hidden; float: left;">
+                  <h4 style="float: top"><p class="text-muted">Imię</p>{{currentActor.firstName}}</h4>
+                  <h4 style="float: bottom"><p class="text-muted">Data urodzenia</p>{{currentActor.birthDate}}</h4>
+                </div>
+                <div style="overflow: hidden; float: right;">
+                  <h4 style="float: top"><p class="text-muted">Nazwisko</p>{{currentActor.lastName}}</h4>
+                  <h4 style="float: bottom"><p class="text-muted">Płeć</p>{{currentActor.gender}}</h4>
+                </div>
+            </div>
+          </div>
+    </div>
+</div>

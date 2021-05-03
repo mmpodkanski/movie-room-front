@@ -12,7 +12,7 @@ import { UserService } from '../../_services/user.service';
 export class BoardAdminComponent implements OnInit {
   users?: User[];
   movies?: Movie[];
-  areRequests?: boolean;
+  areRequests = false;
 
   user: User = {
     id: '',
@@ -33,9 +33,6 @@ export class BoardAdminComponent implements OnInit {
   ngOnInit(): void {
     this.showUsersList();
     this.showMoviesToAccept();
-    if(this.movies === undefined) {
-      this.areRequests = false;
-    }
   }
 
   showUsersList(): void {
@@ -43,7 +40,6 @@ export class BoardAdminComponent implements OnInit {
       .subscribe(
         data =>  {
         this.users = data;
-        // console.log(data);
       });
   };
  
@@ -52,7 +48,9 @@ export class BoardAdminComponent implements OnInit {
       .subscribe(
         data => {
           this.movies = data;
-          // console.log(data);
+          if(data.length > 0) {
+            this.areRequests = true;
+          }
       });
   };
 
@@ -61,7 +59,6 @@ export class BoardAdminComponent implements OnInit {
       .subscribe(
         response => {
           this.reloadPage();
-          // console.log(response);
       });
   };
 
@@ -70,7 +67,6 @@ export class BoardAdminComponent implements OnInit {
       .subscribe(
         response => {
           this.reloadPage();
-          // console.log(response);
       });
   };
   
@@ -78,9 +74,8 @@ export class BoardAdminComponent implements OnInit {
   refuseMovieRequest(id: any): void {
     this.adminService.refuseMovieRequest(id)
       .subscribe(
-        response => {
+        resp => {
           this.reloadPage();
-          // console.log(response);
       });
   };
 

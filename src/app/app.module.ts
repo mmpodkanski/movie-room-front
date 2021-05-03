@@ -20,11 +20,13 @@ import { BoardAdminComponent } from './components/board-admin/board-admin.compon
 import { FormsModule } from '@angular/forms';
 import { MoviesListComponent } from './components/movies-list/movies-list.component';
 import { MovieDetailsComponent } from './components/movie-details/movie-details.component';
-import { AddMovieComponent } from './components/add-movie/add-movie.component';
+import { MovieAddComponent as MovieAddComponent } from './components/movie-add/movie-add.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { HearthButtonModule } from './favourite-button/hearth/hearth.module';
-import { EditMovieComponent } from './components/edit-movie/edit-movie.component';
+import { MovieEditComponent as MovieEditComponent } from './components/movie-edit/movie-edit.component';
 import { SlickCarouselModule } from 'ngx-slick-carousel';
+import { ActorDetailsComponent } from './components/actor-details/actor-details.component';
+import { ActorEditComponent } from './components/actor-edit/actor-edit.component';
 
 
 
@@ -37,8 +39,10 @@ import { SlickCarouselModule } from 'ngx-slick-carousel';
     BoardAdminComponent,
     MoviesListComponent,
     MovieDetailsComponent,
-    AddMovieComponent,
-    EditMovieComponent
+    MovieAddComponent,
+    MovieEditComponent,
+    ActorDetailsComponent,
+    ActorEditComponent
   ],
   imports: [
     BrowserModule,

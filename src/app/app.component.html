@@ -7,14 +7,13 @@
         <a href="/movies" class="nav-item nav-link">Filmy </a>
       </li>
       <li class="nav-item" *ngIf="isLoggedIn">
-        <a routerLink="add" class="nav-item nav-link">Dodaj</a>
+        <a routerLink="/add-movie" class="nav-item nav-link">Dodaj</a>
       </li>
       <li class="nav-item" *ngIf="showAdminBoard">
         <a href="/admin/board" class="nav-item nav-link" routerLink="admin/board">Panel Admina</a>
       </li>
     </ul>
     
-
     <ul class="navbar-nav ml-auto" *ngIf="!isLoggedIn">
       <li class="nav-item">
         <a href="/register" class="nav-link" routerLink="register">Rejestracja</a>

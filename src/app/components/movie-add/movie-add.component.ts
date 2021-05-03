@@ -1,17 +1,17 @@
 import { Component, Injector, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { Actor, ActorReq } from 'src/app/models/actor.model';
+import { ActorReq } from 'src/app/models/actor.model';
 import { Movie } from 'src/app/models/movie.model';
 import { MovieService } from 'src/app/_services/movie.service';
 import { NotificationService } from 'src/app/_services/notification.service';
 import { TokenStorageService } from 'src/app/_services/token-storage.service';
 
 @Component({
-  selector: 'app-add-movie',
-  templateUrl: './add-movie.component.html',
-  styleUrls: ['./add-movie.component.css']
+  selector: 'app-movie-add',
+  templateUrl: './movie-add.component.html',
+  styleUrls: ['./movie-add.component.css']
 })
-export class AddMovieComponent implements OnInit {
+export class MovieAddComponent implements OnInit {
 
   firstName: string = '';
   lastName: string = '';
@@ -59,13 +59,14 @@ export class AddMovieComponent implements OnInit {
     let actor = new ActorReq();
     actor.firstName = this.firstName;
     actor.lastName = this.lastName;
+    
     this.actors.push(actor);
-    console.log(this.actors);
+    // console.log(this.actors);
   }
 
   removeActor(index: any): void {
     this.actors.splice(index, 1);
-    console.log(this.actors);
+    // console.log(this.actors);
   }
 
 

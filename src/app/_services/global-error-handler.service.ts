@@ -19,7 +19,7 @@ export class GlobalErrorHandler implements ErrorHandler {
 
         let message;
 
-        console.log(error.message);
+        // console.log(error.message);
         if (error instanceof HttpErrorResponse ) {
             if (error.status == 401) {
                 notifier.showError("Prosze się zalogować!");
@@ -31,7 +31,6 @@ export class GlobalErrorHandler implements ErrorHandler {
             }
         } else {
             // Client Error
-            console.log(error);
             message = errorService.getClientMessage(error);
             notifier.showError(message);
         }
