@@ -1,10 +1,11 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { environment } from 'environment';
 import { Observable } from 'rxjs';
 import { Movie } from '../models/movie.model';
 import { User } from '../models/user.model';
 
-const baseUrl = 'http://localhost:8080/admin/board';
+const baseUrl = environment.baseUrl + 'admin/board';
 
 @Injectable({
   providedIn: 'root'

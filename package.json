@@ -3,11 +3,13 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
-    "build": "ng build",
+    "heroku-postbuild": "ng build --prod && npm install -g http-server-spa",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "start": "http-server-spa dist/mmpodkanski-movie-roomn index.html $PORT",
+    "build": "ng build"
+
   },
   "private": true,
   "dependencies": {
