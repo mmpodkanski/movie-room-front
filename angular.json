@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "film-room-front": {
+    "mmpod-movie-room": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:application": {
@@ -17,7 +17,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/film-room-front",
+            "outputPath": "dist/mmpod-movie-room",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -72,18 +72,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "film-room-front:build"
+            "browserTarget": "mmpod-movie-room:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "film-room-front:build:production"
+              "browserTarget": "mmpod-movie-room:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "film-room-front:build"
+            "browserTarget": "mmpod-movie-room:build"
           }
         },
         "test": {
@@ -121,18 +121,18 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "film-room-front:serve"
+            "devServerTarget": "mmpod-movie-room:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "film-room-front:serve:production"
+              "devServerTarget": "mmpod-movie-room:serve:production"
             }
           }
         }
       }
     }
   },
-  "defaultProject": "film-room-front",
+  "defaultProject": "mmpod-movie-room",
   "cli": {
     "analytics": "4d3898d7-a2ee-44b3-8662-198c04695d81"
   }
