@@ -7,7 +7,7 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "start": "http-server-spa dist/mmpod-spring-movie-room index.html --port=$PORT",
+    "start": "http-server-spa dist/mmpod-spring-movie-room index.html $PORT",
     "build": "ng build"
 
   },
