@@ -64,7 +64,7 @@
 
 
 
-    <div class="row" style="margin-top: 8%;">
+    <div class="row" style="padding-top: 15%;">
       <div class="col" style="max-width: 800px; margin: 0 auto;">
 
         <h2 class="tag_title" style="text-align: center;">
@@ -85,23 +85,9 @@
       
       </div>
     </div>
-
-    <div style="margin-top: 11%;">
-      <h2 class="tag_title" style="text-align: center;">
-        Filmy, &nbsp; trailery
-      </h2>
-      <div class="card-deck" style="margin-top: 3%;">
-        <iframe style="height: 300px; width: 400px;" class="card" src="https://www.youtube.com/embed/zpOULjyy-n8?rel=0" allowfullscreen></iframe>
-        <iframe style="height: 300px; width: 400px;" class="card" src="https://www.youtube.com/embed/zpOULjyy-n8?rel=0" allowfullscreen></iframe>
-      </div>
-    </div>
-
-
-
   </div>
 
   <div class="back_2 container">
-
     <div *ngIf="currentMovie.comments.length > 0" style="margin-top: 30%;">
       <h2>Komentarze</h2>
       <div *ngFor="let comment of currentMovie.comments" class="col-md-6">
@@ -110,13 +96,11 @@
             <strong class="d-inline-block mb-2 text-primary">{{comment.author}}</strong>
             <h3 class="mb-0">{{comment.title}}</h3>
             <div class="mb-1 text-muted">{{comment.createdAt.substring(0, 10)}}</div>
-            <p class="card-text mb-auto" style="margin-top: 3%;">{{comment.description}}</p>
+            <p class="text-break" style="margin-top: 3%;">{{comment.description}}</p>
             <!-- <a href="#" class="stretched-link">delete</a> -->
           </div>
-          <div class="col-auto d-none d-lg-block">
-            <svg class="bd-placeholder-img" width="150" height="165" xmlns="http://www.w3.org/2000/svg" role="img" focusable="false"><rect width="100%" height="100%" fill="#55595c"/>
-            </svg>
 
+          <div class="col-auto d-none d-lg-block">
           </div>
         </div>
       </div>

@@ -28,6 +28,6 @@ export class AuthService {
       username,
       email,
       password
-    }, httpOptions);
+    }, httpOptions)
   }
 }
