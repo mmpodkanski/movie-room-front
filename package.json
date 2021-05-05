@@ -1,5 +1,5 @@
 {
-  "name": "movie-room-front",
+  "name": "mmpod-movie-room",
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
@@ -7,7 +7,7 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "start": "http-server-spa dist/mmpod-spring-movie-room index.html $PORT",
+    "start": "http-server-spa dist/mmpod-movie-room index.html $PORT",
     "build": "ng build"
 
   },
