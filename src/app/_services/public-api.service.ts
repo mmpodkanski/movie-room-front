@@ -1,8 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { environment } from 'environment';
 import { Observable } from 'rxjs';
 import { News } from '../models/news.model';
+import { environment } from 'environment.prod';
 
 const baseUrl = environment.baseUrl + 'api';
 
