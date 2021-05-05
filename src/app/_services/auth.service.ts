@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { environment } from 'environment.prod';
+import { environment } from 'src/environments/environment.prod';
 
 const AUTH_API = environment.baseUrl + 'auth';
 

@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Movie } from '../models/movie.model';
-import { environment } from 'environment.prod';
+import { environment } from 'src/environments/environment.prod';
 
 const baseUrl = environment.baseUrl + 'users';
 

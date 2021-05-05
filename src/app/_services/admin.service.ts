@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Movie } from '../models/movie.model';
 import { User } from '../models/user.model';
-import { environment } from 'environment.prod';
+import { environment } from 'src/environments/environment.prod';
 
 const baseUrl = environment.baseUrl + 'admin/board';
 
