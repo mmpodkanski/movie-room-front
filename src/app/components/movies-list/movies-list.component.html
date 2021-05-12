@@ -25,10 +25,17 @@
   <div class="news-title">
     <h1 class="movie_title text-center" style="font-size: 80px;">NEWSY</h1>
   </div>
-  <div class="card bg-dark text-white" style="margin-top: 5%;">
+
+  <div *ngIf="movies.length > 0" class="card bg-dark text-white" style="margin-top: 5%;">
     <img src="{{currentNews.imageUrl}}" class="card-img imgNews" alt="...">
     <div class="card-img-overlay">
       <a href="{{currentNews.url}}" target="_blank" class="card-title movie_title" style="color: white;">{{currentNews.title}}</a>
+    </div>
+  </div>
+
+  <div *ngIf="movies.length == 0" class="d-flex justify-content-center" style="margin-top: 5%;">
+    <div class="spinner-border" role="status">
+      <span class="sr-only">Loading...</span>
     </div>
   </div>
 </div>
@@ -39,6 +46,13 @@
     <h1 class="movie_title_white text-center" style="font-size: 80px;">NAJNOWSZE</h1>
   </div>
   <ngx-slick-carousel [config]="sliderConfig" class="carousel">
+
+    <div *ngIf="movies.length == 0" class="d-flex justify-content-center text-light">
+      <div class="spinner-border" role="status">
+        <span class="sr-only">Loading...</span>
+      </div>
+    </div>
+
     <div  class="card_link" *ngFor="let m of newestMovies" ngxSlickItem>
       <div class="imgContainer">
         <a (click)="goToMovie(m)">
@@ -49,7 +63,7 @@
   </ngx-slick-carousel>
 </div> 
 
-<div class="movies" style="margin-top: 5%;">
+<div *ngIf="movies.length > 0" class="movies" style="margin-top: 5%;">
   <div>
     <h1 class="movie_title text-center" style="font-size: 80px;">NAJLEPIEJ OCENIANE</h1>
   </div>
@@ -71,7 +85,7 @@
   </div>
 </div>
 
-<div class="movies" style="margin-top: 5%;">
+<div *ngIf="movies.length > 0" class="movies" style="margin-top: 5%;">
   <div>
     <h1 class="movie_title text-center" style="font-size: 80px;">WSZYSTKIE</h1>
   </div>

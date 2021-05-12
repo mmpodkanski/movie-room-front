@@ -16,7 +16,7 @@ export class MoviesListComponent implements OnInit {
   showAdminButtons = false;
   isLoggedIn = false;
 
-  movies?: Movie[];
+  movies: Movie[] = [];
   topRatedMovies?: Movie[];
   newestMovies?: Movie[];
 
