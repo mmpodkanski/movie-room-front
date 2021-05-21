@@ -45,14 +45,14 @@
   <div>
     <h1 class="movie_title_white text-center" style="font-size: 80px;">NAJNOWSZE</h1>
   </div>
-  <ngx-slick-carousel [config]="sliderConfig" class="carousel">
 
-    <div *ngIf="movies.length == 0" class="d-flex justify-content-center text-light">
-      <div class="spinner-border" role="status">
-        <span class="sr-only">Loading...</span>
-      </div>
+  <div *ngIf="movies.length == 0" class="d-flex justify-content-center text-light">
+    <div class="spinner-border" role="status">
+      <span class="sr-only">Loading...</span>
     </div>
+  </div>
 
+  <ngx-slick-carousel [config]="sliderConfig" class="carousel">
     <div  class="card_link" *ngFor="let m of newestMovies" ngxSlickItem>
       <div class="imgContainer">
         <a (click)="goToMovie(m)">
