@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "heroku-postbuild": "ng build --prod && npm install -g http-server-spa",
+    "heroku-postbuild": "ng build --prod --legacy-peer-deps && npm install -g http-server-spa",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
