@@ -3,13 +3,13 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "heroku-postbuild": "ng build --prod && npm install -g http-server-spa && npm install --unsafe-perm",
+    "heroku-postbuild": "ng build --prod && npm install -g http-server-spa --unsafe-perm",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
     "start": "http-server-spa dist/mmpod-movie-room index.html $PORT --openssl-legacy-provider",
     "build": "ng build",
-    "install": "npm install"
+    "install": "npm install -g http-server-spa --unsafe-perm"
   },
   "private": true,
   "dependencies": {
