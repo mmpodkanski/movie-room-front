@@ -3,11 +3,11 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "heroku-postbuild": "ng build --prod && npm install -g http-server-spa",
+    "heroku-postbuild": "ng build --prod --openssl-legacy-provider && npm install -g http-server-spa",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "start": "http-server-spa dist/mmpod-movie-room index.html $PORT",
+    "start": "http-server-spa dist/mmpod-movie-room index.html $PORT --openssl-legacy-provider",
     "build": "ng build"
 
   },
