@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  baseUrl: 'https://mmpod-spring-movie-room.herokuapp.com/'
+  baseUrl: 'https://movie-room-pollub.herokuapp.com/'
 };
